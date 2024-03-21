@@ -1,0 +1,3 @@
+C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088/cmake-build-debug/CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir
+C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -45,7 +45,7 @@ public:
 
     // Function to display Bug information
     void display() {
-        printf("Type: %c\nID: %d\nPosition: (%d, %d)\nDirection: %s\nSize: %d\nAlive: %d\nPath: ",
+        printf("%-5c %-6d %d, %-11d %-16s %-5d %-5d ",
                type, id, position.first, position.second, directionString(static_cast<int>(direction)).c_str(), size, alive);
         for (const auto& p : path) {
             printf("(%d, %d) ", p.first, p.second);
@@ -56,6 +56,22 @@ public:
 
 
 int main() {
+
+    int userChoice;
+
+    // Display menu
+    cout << "----Menu----" << endl;
+    cout << "What would you like to do?" << endl;
+    cout << "1. Initialize Bug Board" << endl;
+    cout << "2. Display All Bugs" << endl;
+    cout << "3. Find Bug By ID" << endl;
+    cout << "4. SHAKE BOARD!!!" << endl;
+    cout << "5. Display Life History of all bugs" << endl;
+    cout << "6. Display all Cells" << endl;
+    cout << "7. PLAY GAME" << endl;
+    cout << "8. Exit" << endl;
+    cin >> userChoice;
+
     ifstream file("Bugs.txt");
 
     if (!file.is_open()) {
@@ -71,7 +87,6 @@ int main() {
         list<pair<int, int>> path;
 
         s >> type >> id >> x >> y >> directionInt >> size;
-        printf("Type: %c, ID: %d, X: %d, Y: %d, Direction Int: %d, Size: %d\n", type, id, x, y, directionInt, size);
 
         int tempX, tempY;
         while (s >> tempX >> tempY) {
@@ -97,14 +112,28 @@ int main() {
                 cerr << "Invalid direction!" << endl;
                 continue; // Skip this line
         }
-
         // Create Bug object and display information
         Bug bug(type, id, {x, y}, dir, size, true, path);
         bug.display();
+
+        switch (userChoice) {
+            case 1:
+                break;
+            case 2:
+                bug.display();
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            default:
+                cerr << "Invalid Option!" << endl;
+               continue; // Skip this line
     }
 
-    // Close the file
-    file.close();
+       }
+        // Close the file
+        file.close();
 
-    return 0;
-}
+        return 0;
+    }

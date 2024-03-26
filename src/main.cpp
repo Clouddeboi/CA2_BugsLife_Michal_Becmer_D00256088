@@ -26,7 +26,6 @@ string directionString(int directionInt) {
             return "Unknown";
     }
 }
-
 // Bug class
 class Bug {
 private:
@@ -50,7 +49,8 @@ public:
                type, id, position.first, position.second, directionString(static_cast<int>(direction)).c_str(), size, alive ? "true" : "false");
 
         // Print path taken by the bug
-        for (const auto& p : path) {
+        for (const auto& p : path)
+        {
             printf("(%d,%d) ", p.first, p.second);
         }
         printf("\n");
@@ -77,7 +77,8 @@ int main() {
 
     ifstream file("Bugs.txt"); // Open file for reading bugs
 
-    if (!file.is_open()) { // Check if file is successfully opened
+    if (!file.is_open())
+    { // Check if file is successfully opened
         cout << "Cannot Open File!" << endl;
         return 1;
     }
@@ -92,7 +93,8 @@ int main() {
         s >> type >> id >> x >> y >> directionInt >> size; // Read bug attributes
 
         int tempX, tempY;
-        while (s >> tempX >> tempY) { // Read path taken by the bug
+        while (s >> tempX >> tempY)
+        { // Read path taken by the bug
             path.push_back({tempX, tempY});
         }
 

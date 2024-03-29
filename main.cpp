@@ -23,7 +23,7 @@ string directionString(int directionInt) {
         case 4:
             return "West";
         default:
-            return "Unknown";
+            return "Unknown";//return unknown if direction doesn't equal the ones above
     }
 }
 
@@ -55,10 +55,57 @@ public:
         }
         printf("\n");
     }
+    //gets bug position
+    pair<int, int> getPosition() const {
+        return position;
+    }
+
+    //gets bug type
+    char getType() const {
+        return type;
+    }
+};
+
+class Board{
+protected:
+    vector<vector<char>> grid;//grid for the bug board
+
+public:
+    //constructor
+    Board() {
+        // Initialize the grid to be 10x10, empty spaces will have an X
+        grid.assign(10, vector<char>(10, '-'));
+    }
+
+    void addBugToBoard(const Bug& bug)
+    {
+        //gets bug position
+        pair<int, int> position = bug.getPosition();
+        // Check if the position is within bounds
+        if (position.first >= 0 && position.first < grid.size() && position.second >= 0 && position.second < grid[0].size()) {
+            //adds bug to the bug board at the found position and puts its type on the board
+            grid[position.first][position.second] = bug.getType();
+        } else {
+            cerr << "Bug position is out of bounds!" << endl;//error msg if bug is out bounds
+        }
+    }
+
+    void displayBoard()
+    {
+        for(int i = 0; i < 10; ++i)//loops rows
+        {
+            for(int j = 0; j < 10; ++j)//loops columns
+            {
+                cout << grid[i][j] << " ";//output the location of the character followed by an empty space
+            }
+            cout << endl;//makes rows by moving to next line after a row
+        }
+    }
 };
 
 int main() {
     vector<Bug> bugs; // Vector to hold all bugs
+    Board bugBoard; //BugBoard obj
 
     int userChoice; // Variable to store user's choice
 
@@ -77,13 +124,16 @@ int main() {
 
     ifstream file("Bugs.txt"); // Open file for reading bugs
 
-    if (!file.is_open()) { // Check if file is successfully opened
+    if (!file.is_open())
+    {
+        // Check if file is successfully opened
         cout << "Cannot Open File!" << endl;
         return 1;
     }
 
     string line; // Variable to store each line read from file
-    while (getline(file, line)) { // Read each line from file
+    while (getline(file, line))
+    { // Read each line from file
         stringstream s(line); // Create string stream from line
         char type; // Type of bug
         int id, x, y, directionInt, size; // Bug attributes
@@ -92,7 +142,8 @@ int main() {
         s >> type >> id >> x >> y >> directionInt >> size; // Read bug attributes
 
         int tempX, tempY;
-        while (s >> tempX >> tempY) { // Read path taken by the bug
+        while (s >> tempX >> tempY)
+        { // Read path taken by the bug
             path.push_back({tempX, tempY});
         }
 
@@ -123,10 +174,17 @@ int main() {
     // Close the file
     file.close();
 
+    //adds bug to the board
+    for(const auto& bug: bugs)//loops through the vector of bugs
+    {
+        bugBoard.addBugToBoard(bug);//adds to the board
+    }
+
     // Based on user's choice, perform appropriate action
     switch (userChoice) {
         case 1:
-            // Initialize Bug Board
+            cout << "Bug Board Initialized!\n" << endl;
+            bugBoard.displayBoard();
             break;
         case 2:
             //Headings

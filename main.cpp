@@ -64,6 +64,11 @@ public:
     char getType() const {
         return type;
     }
+
+    //gets bug id
+    int getID() const{
+        return id;
+    }
 };
 
 class Board{
@@ -99,6 +104,33 @@ public:
                 cout << grid[i][j] << " ";//output the location of the character followed by an empty space
             }
             cout << endl;//makes rows by moving to next line after a row
+        }
+    }
+
+    void findByID(const vector<Bug>& bugs)
+    {
+        int search;//searched id
+
+        cout << "Enter Id of the bug you wish to find:";
+        cin >> search;//gets search parameters from user
+
+        bool found = false;//bool to check if id is found
+
+        for(Bug bug : bugs)//iterates through each bug
+        {
+            if(bug.getID() == search)//if the id matches the search
+            {
+                cout << "\nBug with ID " << search << " found!\n" << endl;
+                printf("%-5s %-6s %s %12s %10s %7s\n",
+                       "Type", "ID", "Position", "Direction", "Size", "Alive");
+                bug.display();//if found it displays the bug
+                found = true;//sets to true if bug is found
+                break;
+            }
+        }
+        if(!found)//if it cant find the bug gives msg
+        {
+            cerr << "Couldn't find bug with ID " << search << endl;
         }
     }
 };
@@ -196,7 +228,8 @@ int main() {
             }
             break;
         case 3:
-            // Find Bug By ID
+            //Find Bug By ID
+            bugBoard.findByID(bugs);
             break;
         case 4:
             // SHAKE BOARD!!!

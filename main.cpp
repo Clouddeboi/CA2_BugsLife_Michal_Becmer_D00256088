@@ -30,8 +30,8 @@ Direction DirectionToInt(int value) {
     }
 }
 // Function to convert direction integer to string
-string directionString(int directionInt) {
-    switch(directionInt) {
+string directionString(int direction) {
+    switch(direction) {
         case 1:
             return "North";
         case 2:
@@ -61,36 +61,87 @@ void display(const Bug& bug) {
 }
 
 
-void findByID(vector<Bug*> bugs)
-{
-    int search;//searched id
+void findByID(const vector<Bug*>& bugs) {
+    int searchId;
+    cout << "Enter the ID of the bug you wish to find: ";
+    cin >> searchId;
 
-    cout << "Enter Id of the bug you wish to find:";
-    cin >> search;//gets search parameters from user
-
-    bool found = false;//bool to check if id is found
-
-    for(const Bug* bug : bugs)//iterates through each bug
+    bool found = false;
+    for (const Bug* bug : bugs)
     {
-        if(bug -> getId() == search)//if the id matches the search
+        if (bug->getId() == searchId)
         {
-            cout << "\nBug with ID " << search << " found!\n" << endl;
-            printf("%-5s %-6s %s %12s %10s %7s\n",
-                   "Type", "ID", "Position", "Direction", "Size", "Alive");
-            display(*bug);//if found it displays the bug
-            found = true;//sets to true if bug is found
+            cout << "Bug with ID " << searchId << " found!" << endl;
+            display(*bug);
+            found = true;
             break;
         }
     }
-    if(!found)//if it cant find the bug gives msg
+
+    if (!found)
     {
-        cerr << "Couldn't find bug with ID " << search << endl;
+        cout << "Bug with ID " << searchId << " not found." << endl;
     }
 }
 
 int main() {
     vector<Bug*> vect; // Vector to hold all bugs
     Board bugBoard; //BugBoard obj
+
+    ifstream file("Bugs.txt");//Open file for reading bugs
+
+    if (!file.is_open())
+    {
+        //Check if file can be opened
+        cout << "Cannot Open File!" << endl;
+        return 1;
+    }
+
+    string line; //for storing each line read from file
+    while (getline(file, line))
+    {
+        stringstream ss(line);
+        vector<string> tokens;
+        string token;
+        while (getline(ss, token, ';'))
+        {
+            tokens.push_back(token);
+        }
+
+        try {
+            char type = tokens[0][0];
+            int id = stoi(tokens[1]);
+            int x = stoi(tokens[2]);
+            int y = stoi(tokens[3]);
+            int direction = stoi(tokens[4]);
+            int size = stoi(tokens[5]);
+
+            //cout << "Creating bug from line: " << line << endl;
+
+            Bug* bug = nullptr;
+            if (type == 'C')
+            {
+                bug = new Crawler(type, id, x, y, direction, size);
+            }
+            else if (type == 'H')
+            {
+                int hopLength = stoi(tokens[6]);
+                bug = new Hopper(type, id, x, y, direction, size, hopLength);
+            }
+
+            if (bug) {
+                vect.push_back(bug);
+                bugBoard.addBugToBoard(*bug);
+            }
+        }
+        catch (const invalid_argument& e)
+        {
+            cerr << "Invalid input: " << e.what() << endl;
+        }
+
+    }
+    // Close the file
+    file.close();
 
     int userChoice; // Variable to store user's choice
 
@@ -107,63 +158,6 @@ int main() {
     cout << "7. PLAY GAME" << endl;
     cout << "8. Exit" << endl;
     cin >> userChoice; // Get user's choice
-
-    cout << "1"<< endl;
-    ifstream file("Bugs.txt");//Open file for reading bugs
-
-    if (!file.is_open())
-    {
-        //Check if file can be opened
-        cout << "Cannot Open File!" << endl;
-        return 1;
-    }
-
-    cout << "1";
-    string line; //for storing each line read from file
-    while(getline(file,line)){
-        vector<string> tokens;
-        stringstream s(line);
-        string token;
-
-        //storing tokens in vector using a delimiter
-        while(getline(s, token, ';'))
-        {
-            tokens.push_back(token);
-        }
-
-        for(string s: tokens){
-            cout << "\n"<<s;
-        }
-
-        //conversion with tokens
-        char type = tokens[0][0];
-
-        if(!tokens.at(0).compare("C"))
-        {
-            auto *crawler = new Crawler(
-                    'C',
-                    stoi(tokens.at(1)),//string to integer
-                    stoi(tokens[2]),
-                    stoi(tokens[3]), //strings to integers and creating pair
-                    stoi(tokens[4]), //string to integer and then to Direction enum
-                    stoi(tokens[5]) //string to integer
-                    );
-        }
-        else if(!tokens.at(0).compare("H"))
-        {
-            auto poo = new Hopper(
-                    'H',
-                    stoi(tokens.at(1)),//string to integer
-                    stoi(tokens[2]),
-                    stoi(tokens[3]),//strings to integers and creating pair
-                    stoi(tokens[4]), //string to integer and then to Direction enum
-                    stoi(tokens[5]),//string to integer
-                    stoi(tokens[6])
-            );
-        }
-    }
-    // Close the file
-    file.close();
 
     //adds bug to the board
     for(const auto& bug: vect)//loops through the vector of bugs

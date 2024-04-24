@@ -9,11 +9,13 @@
 #include "Bug.h"
 #include "Direction.h"
 #include "Board.h"
+#include "Crawler.h"
+#include "Hopper.h"
 
 using namespace std;
 
 //function for converting int to direction
-Direction intToDirection(int value) {
+Direction DirectionToInt(int value) {
     switch(value) {
         case 1:
             return Direction::North;
@@ -59,7 +61,7 @@ void display(const Bug& bug) {
 }
 
 
-void findByID(const vector<Bug>& bugs)
+void findByID(vector<Bug*> bugs)
 {
     int search;//searched id
 
@@ -68,14 +70,14 @@ void findByID(const vector<Bug>& bugs)
 
     bool found = false;//bool to check if id is found
 
-    for(Bug bug : bugs)//iterates through each bug
+    for(const Bug* bug : bugs)//iterates through each bug
     {
-        if(bug.getId() == search)//if the id matches the search
+        if(bug -> getId() == search)//if the id matches the search
         {
             cout << "\nBug with ID " << search << " found!\n" << endl;
             printf("%-5s %-6s %s %12s %10s %7s\n",
                    "Type", "ID", "Position", "Direction", "Size", "Alive");
-            display(bug);//if found it displays the bug
+            display(*bug);//if found it displays the bug
             found = true;//sets to true if bug is found
             break;
         }
@@ -87,7 +89,7 @@ void findByID(const vector<Bug>& bugs)
 }
 
 int main() {
-    vector<Bug> bugs; // Vector to hold all bugs
+    vector<Bug*> vect; // Vector to hold all bugs
     Board bugBoard; //BugBoard obj
 
     int userChoice; // Variable to store user's choice
@@ -106,6 +108,7 @@ int main() {
     cout << "8. Exit" << endl;
     cin >> userChoice; // Get user's choice
 
+    cout << "1"<< endl;
     ifstream file("Bugs.txt");//Open file for reading bugs
 
     if (!file.is_open())
@@ -115,6 +118,7 @@ int main() {
         return 1;
     }
 
+    cout << "1";
     string line; //for storing each line read from file
     while(getline(file,line)){
         vector<string> tokens;
@@ -127,26 +131,44 @@ int main() {
             tokens.push_back(token);
         }
 
+        for(string s: tokens){
+            cout << "\n"<<s;
+        }
+
         //conversion with tokens
         char type = tokens[0][0];
-        int id = stoi(tokens[1]);//string to integer
-        pair<int, int> position = make_pair(stoi(tokens[2]), stoi(tokens[3])); //strings to integers and creating pair
-        Direction direction = intToDirection(stoi(tokens[4])); //string to integer and then to Direction enum
-        int size = stoi(tokens[5]); //string to integer
-        bool isAlive = true;
 
-        //create Bug object and push it into the vector
-        Bug bug(type, id, position, direction, size, isAlive, list<pair<int,int>>());
-        bugs.push_back(bug);
-
+        if(!tokens.at(0).compare("C"))
+        {
+            auto *crawler = new Crawler(
+                    'C',
+                    stoi(tokens.at(1)),//string to integer
+                    stoi(tokens[2]),
+                    stoi(tokens[3]), //strings to integers and creating pair
+                    stoi(tokens[4]), //string to integer and then to Direction enum
+                    stoi(tokens[5]) //string to integer
+                    );
+        }
+        else if(!tokens.at(0).compare("H"))
+        {
+            auto poo = new Hopper(
+                    'H',
+                    stoi(tokens.at(1)),//string to integer
+                    stoi(tokens[2]),
+                    stoi(tokens[3]),//strings to integers and creating pair
+                    stoi(tokens[4]), //string to integer and then to Direction enum
+                    stoi(tokens[5]),//string to integer
+                    stoi(tokens[6])
+            );
+        }
     }
     // Close the file
     file.close();
 
     //adds bug to the board
-    for(const auto& bug: bugs)//loops through the vector of bugs
+    for(const auto& bug: vect)//loops through the vector of bugs
     {
-        bugBoard.addBugToBoard(bug);//adds to the board
+        bugBoard.addBugToBoard(*bug);//adds to the board
     }
 
     // Based on user's choice, perform appropriate action
@@ -159,13 +181,13 @@ int main() {
             //headers
             headings();
             // Display All Bugs
-            for (Bug bug : bugs) {
-                display(bug);
+            for (Bug* bug : vect) {
+                display(*bug);
             }
             break;
         case 3:
             //Find Bug By ID
-            findByID(bugs);
+            findByID(vect);
             break;
         case 4:
             // SHAKE BOARD!!!
@@ -186,6 +208,5 @@ int main() {
             cerr << "Invalid Option!" << endl;
             break;
     }
-
     return 0;
 }

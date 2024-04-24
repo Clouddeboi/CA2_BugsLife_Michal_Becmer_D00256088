@@ -8,6 +8,7 @@
 using namespace std;
 
 class Bug {
+
 protected:
     char type; // Type of bug
     int id; // Identification number
@@ -18,8 +19,13 @@ protected:
     list<pair<int,int>> path; // Path taken by the bug
 
 public:
-    Bug(char type, int id, const pair<int, int>& position, Direction direction, int size, bool alive,
-        const list<pair<int, int>>& path);
+
+    virtual void move() =0;
+    virtual ~Bug();
+
+    Bug(char type, int id, int x, int y, int direction, int size);
+
+    Bug();
 
     char getType() const;
 
@@ -29,7 +35,7 @@ public:
 
     void setId(int id);
 
-    const std::pair<int, int>& getPosition() const;
+    const pair<int, int>& getPosition() const;
 
     void setPosition(const pair<int, int>& position);
 

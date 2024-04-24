@@ -10,7 +10,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/Board.cpp" "CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Board.cpp.obj" "gcc" "CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Board.cpp.obj.d"
   "C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/Bug.cpp" "CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Bug.cpp.obj" "gcc" "CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Bug.cpp.obj.d"
+  "C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/Crawler.cpp" "CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Crawler.cpp.obj" "gcc" "CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Crawler.cpp.obj.d"
   "C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/Direction.cpp" "CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Direction.cpp.obj" "gcc" "CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Direction.cpp.obj.d"
+  "C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/Hopper.cpp" "CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Hopper.cpp.obj" "gcc" "CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Hopper.cpp.obj.d"
   "C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/main.cpp" "CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/main.cpp.obj" "gcc" "CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/main.cpp.obj.d"
   )
 

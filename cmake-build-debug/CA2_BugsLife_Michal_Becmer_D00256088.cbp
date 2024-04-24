@@ -94,10 +94,22 @@
 		<Unit filename="C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/Bug.h">
 			<Option target="CA2_BugsLife_Michal_Becmer_D00256088"/>
 		</Unit>
+		<Unit filename="C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/Crawler.cpp">
+			<Option target="CA2_BugsLife_Michal_Becmer_D00256088"/>
+		</Unit>
+		<Unit filename="C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/Crawler.h">
+			<Option target="CA2_BugsLife_Michal_Becmer_D00256088"/>
+		</Unit>
 		<Unit filename="C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/Direction.cpp">
 			<Option target="CA2_BugsLife_Michal_Becmer_D00256088"/>
 		</Unit>
 		<Unit filename="C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/Direction.h">
+			<Option target="CA2_BugsLife_Michal_Becmer_D00256088"/>
+		</Unit>
+		<Unit filename="C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/Hopper.cpp">
+			<Option target="CA2_BugsLife_Michal_Becmer_D00256088"/>
+		</Unit>
+		<Unit filename="C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/Hopper.h">
 			<Option target="CA2_BugsLife_Michal_Becmer_D00256088"/>
 		</Unit>
 		<Unit filename="C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/main.cpp">

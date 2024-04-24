@@ -176,6 +176,30 @@ Bug.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CA2_BugsLife_Michal_Becmer_D00256088.dir\build.make CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Bug.cpp.s
 .PHONY : Bug.cpp.s
 
+Crawler.obj: Crawler.cpp.obj
+.PHONY : Crawler.obj
+
+# target to build an object file
+Crawler.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CA2_BugsLife_Michal_Becmer_D00256088.dir\build.make CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Crawler.cpp.obj
+.PHONY : Crawler.cpp.obj
+
+Crawler.i: Crawler.cpp.i
+.PHONY : Crawler.i
+
+# target to preprocess a source file
+Crawler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CA2_BugsLife_Michal_Becmer_D00256088.dir\build.make CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Crawler.cpp.i
+.PHONY : Crawler.cpp.i
+
+Crawler.s: Crawler.cpp.s
+.PHONY : Crawler.s
+
+# target to generate assembly for a file
+Crawler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CA2_BugsLife_Michal_Becmer_D00256088.dir\build.make CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Crawler.cpp.s
+.PHONY : Crawler.cpp.s
+
 Direction.obj: Direction.cpp.obj
 .PHONY : Direction.obj
 
@@ -199,6 +223,30 @@ Direction.s: Direction.cpp.s
 Direction.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CA2_BugsLife_Michal_Becmer_D00256088.dir\build.make CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Direction.cpp.s
 .PHONY : Direction.cpp.s
+
+Hopper.obj: Hopper.cpp.obj
+.PHONY : Hopper.obj
+
+# target to build an object file
+Hopper.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CA2_BugsLife_Michal_Becmer_D00256088.dir\build.make CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Hopper.cpp.obj
+.PHONY : Hopper.cpp.obj
+
+Hopper.i: Hopper.cpp.i
+.PHONY : Hopper.i
+
+# target to preprocess a source file
+Hopper.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CA2_BugsLife_Michal_Becmer_D00256088.dir\build.make CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Hopper.cpp.i
+.PHONY : Hopper.cpp.i
+
+Hopper.s: Hopper.cpp.s
+.PHONY : Hopper.s
+
+# target to generate assembly for a file
+Hopper.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CA2_BugsLife_Michal_Becmer_D00256088.dir\build.make CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Hopper.cpp.s
+.PHONY : Hopper.cpp.s
 
 main.obj: main.cpp.obj
 .PHONY : main.obj
@@ -239,9 +287,15 @@ help:
 	@echo ... Bug.obj
 	@echo ... Bug.i
 	@echo ... Bug.s
+	@echo ... Crawler.obj
+	@echo ... Crawler.i
+	@echo ... Crawler.s
 	@echo ... Direction.obj
 	@echo ... Direction.i
 	@echo ... Direction.s
+	@echo ... Hopper.obj
+	@echo ... Hopper.i
+	@echo ... Hopper.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

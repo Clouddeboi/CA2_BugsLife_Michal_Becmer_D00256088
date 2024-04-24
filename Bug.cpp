@@ -2,9 +2,14 @@
 
 using namespace std;
 
-Bug::Bug(char type, int id, const pair<int, int>& position, Direction direction, int size, bool alive,
-         const list<pair<int, int>>& path)
-        : type(type), id(id), position(position), direction(direction), size(size), alive(alive), path(path) {}
+Bug::~Bug() {
+
+}
+
+Bug::Bug(char type, int id,int x,int y, int direction, int size
+         )
+        : type(type), id(id), position(x,y), size(size), alive(true), path() {}
+
 
 char Bug::getType() const {
     return type;
@@ -53,3 +58,6 @@ bool Bug::isAlive() const {
 void Bug::setAlive(bool alive) {
     Bug::alive = alive;
 }
+
+Bug::Bug() {}
+

@@ -11,6 +11,22 @@
 #include "Board.h"
 
 using namespace std;
+
+//function for converting int to direction
+Direction intToDirection(int value) {
+    switch(value) {
+        case 1:
+            return Direction::North;
+        case 2:
+            return Direction::East;
+        case 3:
+            return Direction::South;
+        case 4:
+            return Direction::West;
+        default:
+            return Direction::North; // Default to North if unknown direction
+    }
+}
 // Function to convert direction integer to string
 string directionString(int directionInt) {
     switch(directionInt) {
@@ -42,18 +58,6 @@ void display(const Bug& bug) {
     printf("\n");
 }
 
-void displayBoard()
-{
-    const vector<vector<char>>& grid = Board().getGrid();
-    for(int i = 0; i < 10; ++i)//loops rows
-    {
-        for(int j = 0; j < 10; ++j)//loops columns
-        {
-            cout << grid[i][j] << "  ";//output the location of the character followed by an empty space
-        }
-        cout << endl;//makes rows by moving to next line after a row
-    }
-}
 
 void findByID(const vector<Bug>& bugs)
 {
@@ -102,69 +106,54 @@ int main() {
     cout << "8. Exit" << endl;
     cin >> userChoice; // Get user's choice
 
-    ifstream file("Bugs.txt"); // Open file for reading bugs
+    ifstream file("Bugs.txt");//Open file for reading bugs
 
     if (!file.is_open())
     {
-        // Check if file is successfully opened
+        //Check if file can be opened
         cout << "Cannot Open File!" << endl;
         return 1;
     }
 
-    string line; // Variable to store each line read from file
-    while (getline(file, line))
-    { // Read each line from file
-        stringstream s(line); // Create string stream from line
-        char type; // Type of bug
-        int id, x, y, directionInt, size; // Bug attributes
-        list<pair<int, int>> path; // Path taken by the bug
+    string line; //for storing each line read from file
+    while(getline(file,line)){
+        vector<string> tokens;
+        stringstream s(line);
+        string token;
 
-        s >> type >> id >> x >> y >> directionInt >> size; // Read bug attributes
-
-        int tempX, tempY;
-        while (s >> tempX >> tempY)
-        { // Read path taken by the bug
-            path.push_back({tempX, tempY});
+        //storing tokens in vector using a delimiter
+        while(getline(s, token, ';'))
+        {
+            tokens.push_back(token);
         }
 
-        // Convert direction integer to enum
-        Direction dir;
-        switch (directionInt) {
-            case 1:
-                dir = Direction::North;
-                break;
-            case 2:
-                dir = Direction::East;
-                break;
-            case 3:
-                dir = Direction::South;
-                break;
-            case 4:
-                dir = Direction::West;
-                break;
-            default:
-                cerr << "Invalid direction!" << endl;
-                continue; // Skip this line
-        }
+        //conversion with tokens
+        char type = tokens[0][0];
+        int id = stoi(tokens[1]);//string to integer
+        pair<int, int> position = make_pair(stoi(tokens[2]), stoi(tokens[3])); //strings to integers and creating pair
+        Direction direction = intToDirection(stoi(tokens[4])); //string to integer and then to Direction enum
+        int size = stoi(tokens[5]); //string to integer
+        bool isAlive = true;
 
-        // Create Bug object and add it to the vector
-        bugs.push_back(Bug(type, id, {x, y}, dir, size, true, path));
+        //create Bug object and push it into the vector
+        Bug bug(type, id, position, direction, size, isAlive, list<pair<int,int>>());
+        bugs.push_back(bug);
+
     }
-
     // Close the file
     file.close();
 
     //adds bug to the board
     for(const auto& bug: bugs)//loops through the vector of bugs
     {
-        Board().addBugToBoard(bug);//adds to the board
+        bugBoard.addBugToBoard(bug);//adds to the board
     }
 
     // Based on user's choice, perform appropriate action
     switch (userChoice) {
         case 1:
             cout << "Bug Board Initialized!\n" << endl;
-            displayBoard();
+            bugBoard.displayBoard();
             break;
         case 2:
             //headers

@@ -22,21 +22,27 @@ public:
         const list<pair<int, int>>& path);
 
     char getType() const;
+
     void setType(char type);
 
     int getId() const;
+
     void setId(int id);
 
     const std::pair<int, int>& getPosition() const;
+
     void setPosition(const pair<int, int>& position);
 
     Direction getDirection() const;
+
     void setDirection(Direction direction);
 
     int getSize() const;
+
     void setSize(int size);
 
     bool isAlive() const;
+
     void setAlive(bool alive);
 };
 

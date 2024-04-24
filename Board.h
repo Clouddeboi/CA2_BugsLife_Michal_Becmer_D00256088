@@ -17,6 +17,7 @@ public:
     const vector<vector<char>>& getGrid() const;
 
     void addBugToBoard(const Bug& bug);
+    void displayBoard();
 };
 
 #endif //CA2_BUGSLIFE_MICHAL_BECMER_D00256088_BOARD_H

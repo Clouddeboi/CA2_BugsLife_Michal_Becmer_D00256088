@@ -6,11 +6,11 @@
 #include <list>
 #include <utility>
 
+#include "Bug.h"
+#include "Direction.h"
+#include "Board.h"
+
 using namespace std;
-
-// Enum for the directions
-enum class Direction { North = 1, East = 2, South = 3, West = 4 };
-
 // Function to convert direction integer to string
 string directionString(int directionInt) {
     switch(directionInt) {
@@ -27,119 +27,67 @@ string directionString(int directionInt) {
     }
 }
 
-// Bug class
-class Bug {
-private:
-    char type; // Type of bug
-    int id; // Identification number
-    pair<int,int> position; // Position coordinates
-    Direction direction; // Direction the bug is facing
-    int size; // Size of the bug
-    bool alive; // Flag indicating if the bug is alive
-    list<pair<int,int>> path; // Path taken by the bug
+void headings(){
+    //Headings
+    printf("%-5s %-6s %s %12s %10s %7s\n",
+           "Type", "ID", "Position", "Direction", "Size", "Alive");
+}
 
-public:
-    // Constructor to initialize variables
-    Bug(char _type, int _id, pair<int,int> _position, Direction _direction, int _size, bool _alive, list<pair<int,int>> _path) :
-            type(_type), id(_id), position(_position), direction(_direction), size(_size), alive(_alive), path(_path) {}
+// Function to display Bug information
+void display(const Bug& bug) {
+    // Print bug information
+    printf("%-5c %-6d %d,%-9d %-16s %-5d %-5s ",
+           bug.getType(), bug.getId(), bug.getPosition().first, bug.getPosition().second,
+           directionString(static_cast<int>(bug.getDirection())).c_str(), bug.getSize(), bug.isAlive() ? "true" : "false");
+    printf("\n");
+}
 
-    // Function to display Bug information
-    void display() {
-        // Print bug information
-        printf("%-5c %-6d %d,%-9d %-16s %-5d %-5s ",
-               type, id, position.first, position.second, directionString(static_cast<int>(direction)).c_str(), size, alive ? "true" : "false");
-
-        // Print path taken by the bug
-        for (const auto& p : path) {
-            printf("(%d,%d) ", p.first, p.second);
-        }
-        printf("\n");
-    }
-    //gets bug position
-    pair<int, int> getPosition() const {
-        return position;
-    }
-
-    //gets bug type
-    char getType() const {
-        return type;
-    }
-
-    //gets bug id
-    int getID() const{
-        return id;
-    }
-};
-
-class Board{
-protected:
-    vector<vector<char>> grid;//grid for the bug board
-
-public:
-    //constructor
-    Board() {
-        // Initialize the grid to be 10x10, empty spaces will have an X
-        grid.assign(10, vector<char>(10, '-'));
-    }
-
-    void addBugToBoard(const Bug& bug)
+void displayBoard()
+{
+    const vector<vector<char>>& grid = Board().getGrid();
+    for(int i = 0; i < 10; ++i)//loops rows
     {
-        //gets bug position
-        pair<int, int> position = bug.getPosition();
-        // Check if the position is within bounds
-        if (position.first >= 0 && position.first < grid.size() && position.second >= 0 && position.second < grid[0].size()) {
-            //adds bug to the bug board at the found position and puts its type on the board
-            grid[position.first][position.second] = bug.getType();
-        } else {
-            cerr << "Bug position is out of bounds!" << endl;//error msg if bug is out bounds
+        for(int j = 0; j < 10; ++j)//loops columns
+        {
+            cout << grid[i][j] << "  ";//output the location of the character followed by an empty space
         }
+        cout << endl;//makes rows by moving to next line after a row
     }
+}
 
-    void displayBoard()
+void findByID(const vector<Bug>& bugs)
+{
+    int search;//searched id
+
+    cout << "Enter Id of the bug you wish to find:";
+    cin >> search;//gets search parameters from user
+
+    bool found = false;//bool to check if id is found
+
+    for(Bug bug : bugs)//iterates through each bug
     {
-        for(int i = 0; i < 10; ++i)//loops rows
+        if(bug.getId() == search)//if the id matches the search
         {
-            for(int j = 0; j < 10; ++j)//loops columns
-            {
-                cout << grid[i][j] << " ";//output the location of the character followed by an empty space
-            }
-            cout << endl;//makes rows by moving to next line after a row
+            cout << "\nBug with ID " << search << " found!\n" << endl;
+            printf("%-5s %-6s %s %12s %10s %7s\n",
+                   "Type", "ID", "Position", "Direction", "Size", "Alive");
+            display(bug);//if found it displays the bug
+            found = true;//sets to true if bug is found
+            break;
         }
     }
-
-    void findByID(const vector<Bug>& bugs)
+    if(!found)//if it cant find the bug gives msg
     {
-        int search;//searched id
-
-        cout << "Enter Id of the bug you wish to find:";
-        cin >> search;//gets search parameters from user
-
-        bool found = false;//bool to check if id is found
-
-        for(Bug bug : bugs)//iterates through each bug
-        {
-            if(bug.getID() == search)//if the id matches the search
-            {
-                cout << "\nBug with ID " << search << " found!\n" << endl;
-                printf("%-5s %-6s %s %12s %10s %7s\n",
-                       "Type", "ID", "Position", "Direction", "Size", "Alive");
-                bug.display();//if found it displays the bug
-                found = true;//sets to true if bug is found
-                break;
-            }
-        }
-        if(!found)//if it cant find the bug gives msg
-        {
-            cerr << "Couldn't find bug with ID " << search << endl;
-        }
+        cerr << "Couldn't find bug with ID " << search << endl;
     }
-};
+}
 
 int main() {
     vector<Bug> bugs; // Vector to hold all bugs
     Board bugBoard; //BugBoard obj
 
     int userChoice; // Variable to store user's choice
+
 
     // Display menu
     cout << "----Menu----" << endl;
@@ -209,27 +157,26 @@ int main() {
     //adds bug to the board
     for(const auto& bug: bugs)//loops through the vector of bugs
     {
-        bugBoard.addBugToBoard(bug);//adds to the board
+        Board().addBugToBoard(bug);//adds to the board
     }
 
     // Based on user's choice, perform appropriate action
     switch (userChoice) {
         case 1:
             cout << "Bug Board Initialized!\n" << endl;
-            bugBoard.displayBoard();
+            displayBoard();
             break;
         case 2:
-            //Headings
-            printf("%-5s %-6s %s %12s %10s %7s\n",
-                   "Type", "ID", "Position", "Direction", "Size", "Alive");
+            //headers
+            headings();
             // Display All Bugs
             for (Bug bug : bugs) {
-                bug.display();
+                display(bug);
             }
             break;
         case 3:
             //Find Bug By ID
-            bugBoard.findByID(bugs);
+            findByID(bugs);
             break;
         case 4:
             // SHAKE BOARD!!!

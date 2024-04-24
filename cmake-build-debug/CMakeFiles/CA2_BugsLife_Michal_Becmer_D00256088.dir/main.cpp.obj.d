@@ -160,4 +160,7 @@ CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/main.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/aligned_buffer.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/list.tcc \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/utility \
- C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_relops.h
+ C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_relops.h \
+ C:\Users\micha\CLionProjects\CA2_BugsLife_Michal_Becmer_D00256088V2\Bug.h \
+ C:\Users\micha\CLionProjects\CA2_BugsLife_Michal_Becmer_D00256088V2\Direction.h \
+ C:\Users\micha\CLionProjects\CA2_BugsLife_Michal_Becmer_D00256088V2\Board.h

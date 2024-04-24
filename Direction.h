@@ -1,0 +1,9 @@
+#ifndef CA2_BUGSLIFE_MICHAL_BECMER_D00256088_DIRECTION_H
+#define CA2_BUGSLIFE_MICHAL_BECMER_D00256088_DIRECTION_H
+
+
+// Enum for the directions
+enum class Direction { North = 1, East = 2, South = 3, West = 4 };
+
+
+#endif //CA2_BUGSLIFE_MICHAL_BECMER_D00256088_DIRECTION_H

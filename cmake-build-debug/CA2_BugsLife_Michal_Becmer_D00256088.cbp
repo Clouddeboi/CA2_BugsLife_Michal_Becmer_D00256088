@@ -82,6 +82,24 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/Board.cpp">
+			<Option target="CA2_BugsLife_Michal_Becmer_D00256088"/>
+		</Unit>
+		<Unit filename="C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/Board.h">
+			<Option target="CA2_BugsLife_Michal_Becmer_D00256088"/>
+		</Unit>
+		<Unit filename="C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/Bug.cpp">
+			<Option target="CA2_BugsLife_Michal_Becmer_D00256088"/>
+		</Unit>
+		<Unit filename="C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/Bug.h">
+			<Option target="CA2_BugsLife_Michal_Becmer_D00256088"/>
+		</Unit>
+		<Unit filename="C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/Direction.cpp">
+			<Option target="CA2_BugsLife_Michal_Becmer_D00256088"/>
+		</Unit>
+		<Unit filename="C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/Direction.h">
+			<Option target="CA2_BugsLife_Michal_Becmer_D00256088"/>
+		</Unit>
 		<Unit filename="C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/main.cpp">
 			<Option target="CA2_BugsLife_Michal_Becmer_D00256088"/>
 		</Unit>

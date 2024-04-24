@@ -128,6 +128,78 @@ CA2_BugsLife_Michal_Becmer_D00256088/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CA2_BugsLife_Michal_Becmer_D00256088.dir\build.make CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/build
 .PHONY : CA2_BugsLife_Michal_Becmer_D00256088/fast
 
+Board.obj: Board.cpp.obj
+.PHONY : Board.obj
+
+# target to build an object file
+Board.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CA2_BugsLife_Michal_Becmer_D00256088.dir\build.make CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Board.cpp.obj
+.PHONY : Board.cpp.obj
+
+Board.i: Board.cpp.i
+.PHONY : Board.i
+
+# target to preprocess a source file
+Board.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CA2_BugsLife_Michal_Becmer_D00256088.dir\build.make CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Board.cpp.i
+.PHONY : Board.cpp.i
+
+Board.s: Board.cpp.s
+.PHONY : Board.s
+
+# target to generate assembly for a file
+Board.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CA2_BugsLife_Michal_Becmer_D00256088.dir\build.make CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Board.cpp.s
+.PHONY : Board.cpp.s
+
+Bug.obj: Bug.cpp.obj
+.PHONY : Bug.obj
+
+# target to build an object file
+Bug.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CA2_BugsLife_Michal_Becmer_D00256088.dir\build.make CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Bug.cpp.obj
+.PHONY : Bug.cpp.obj
+
+Bug.i: Bug.cpp.i
+.PHONY : Bug.i
+
+# target to preprocess a source file
+Bug.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CA2_BugsLife_Michal_Becmer_D00256088.dir\build.make CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Bug.cpp.i
+.PHONY : Bug.cpp.i
+
+Bug.s: Bug.cpp.s
+.PHONY : Bug.s
+
+# target to generate assembly for a file
+Bug.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CA2_BugsLife_Michal_Becmer_D00256088.dir\build.make CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Bug.cpp.s
+.PHONY : Bug.cpp.s
+
+Direction.obj: Direction.cpp.obj
+.PHONY : Direction.obj
+
+# target to build an object file
+Direction.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CA2_BugsLife_Michal_Becmer_D00256088.dir\build.make CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Direction.cpp.obj
+.PHONY : Direction.cpp.obj
+
+Direction.i: Direction.cpp.i
+.PHONY : Direction.i
+
+# target to preprocess a source file
+Direction.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CA2_BugsLife_Michal_Becmer_D00256088.dir\build.make CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Direction.cpp.i
+.PHONY : Direction.cpp.i
+
+Direction.s: Direction.cpp.s
+.PHONY : Direction.s
+
+# target to generate assembly for a file
+Direction.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CA2_BugsLife_Michal_Becmer_D00256088.dir\build.make CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Direction.cpp.s
+.PHONY : Direction.cpp.s
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -161,6 +233,15 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... CA2_BugsLife_Michal_Becmer_D00256088
+	@echo ... Board.obj
+	@echo ... Board.i
+	@echo ... Board.s
+	@echo ... Bug.obj
+	@echo ... Bug.i
+	@echo ... Bug.s
+	@echo ... Direction.obj
+	@echo ... Direction.i
+	@echo ... Direction.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

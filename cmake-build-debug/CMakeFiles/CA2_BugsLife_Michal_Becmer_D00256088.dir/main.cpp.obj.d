@@ -165,4 +165,5 @@ CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/main.cpp.obj: \
  C:\Users\micha\CLionProjects\CA2_BugsLife_Michal_Becmer_D00256088V2\Direction.h \
  C:\Users\micha\CLionProjects\CA2_BugsLife_Michal_Becmer_D00256088V2\Board.h \
  C:\Users\micha\CLionProjects\CA2_BugsLife_Michal_Becmer_D00256088V2\Crawler.h \
- C:\Users\micha\CLionProjects\CA2_BugsLife_Michal_Becmer_D00256088V2\Hopper.h
+ C:\Users\micha\CLionProjects\CA2_BugsLife_Michal_Becmer_D00256088V2\Hopper.h \
+ C:\Users\micha\CLionProjects\CA2_BugsLife_Michal_Becmer_D00256088V2\BattleAnt.h

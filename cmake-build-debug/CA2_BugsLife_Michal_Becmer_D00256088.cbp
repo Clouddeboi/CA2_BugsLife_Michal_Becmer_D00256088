@@ -82,6 +82,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/BattleAnt.cpp">
+			<Option target="CA2_BugsLife_Michal_Becmer_D00256088"/>
+		</Unit>
+		<Unit filename="C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/BattleAnt.h">
+			<Option target="CA2_BugsLife_Michal_Becmer_D00256088"/>
+		</Unit>
 		<Unit filename="C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/Board.cpp">
 			<Option target="CA2_BugsLife_Michal_Becmer_D00256088"/>
 		</Unit>

@@ -128,6 +128,30 @@ CA2_BugsLife_Michal_Becmer_D00256088/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CA2_BugsLife_Michal_Becmer_D00256088.dir\build.make CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/build
 .PHONY : CA2_BugsLife_Michal_Becmer_D00256088/fast
 
+BattleAnt.obj: BattleAnt.cpp.obj
+.PHONY : BattleAnt.obj
+
+# target to build an object file
+BattleAnt.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CA2_BugsLife_Michal_Becmer_D00256088.dir\build.make CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/BattleAnt.cpp.obj
+.PHONY : BattleAnt.cpp.obj
+
+BattleAnt.i: BattleAnt.cpp.i
+.PHONY : BattleAnt.i
+
+# target to preprocess a source file
+BattleAnt.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CA2_BugsLife_Michal_Becmer_D00256088.dir\build.make CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/BattleAnt.cpp.i
+.PHONY : BattleAnt.cpp.i
+
+BattleAnt.s: BattleAnt.cpp.s
+.PHONY : BattleAnt.s
+
+# target to generate assembly for a file
+BattleAnt.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CA2_BugsLife_Michal_Becmer_D00256088.dir\build.make CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/BattleAnt.cpp.s
+.PHONY : BattleAnt.cpp.s
+
 Board.obj: Board.cpp.obj
 .PHONY : Board.obj
 
@@ -281,6 +305,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... CA2_BugsLife_Michal_Becmer_D00256088
+	@echo ... BattleAnt.obj
+	@echo ... BattleAnt.i
+	@echo ... BattleAnt.s
 	@echo ... Board.obj
 	@echo ... Board.i
 	@echo ... Board.s

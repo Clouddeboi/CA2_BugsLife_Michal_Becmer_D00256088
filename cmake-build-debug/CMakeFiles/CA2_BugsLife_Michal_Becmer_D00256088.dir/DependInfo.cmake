@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/BattleAnt.cpp" "CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/BattleAnt.cpp.obj" "gcc" "CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/BattleAnt.cpp.obj.d"
   "C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/Board.cpp" "CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Board.cpp.obj" "gcc" "CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Board.cpp.obj.d"
   "C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/Bug.cpp" "CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Bug.cpp.obj" "gcc" "CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Bug.cpp.obj.d"
   "C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/Crawler.cpp" "CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Crawler.cpp.obj" "gcc" "CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Crawler.cpp.obj.d"

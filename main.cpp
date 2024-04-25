@@ -11,6 +11,7 @@
 #include "Board.h"
 #include "Crawler.h"
 #include "Hopper.h"
+#include "BattleAnt.h"
 
 using namespace std;
 
@@ -137,6 +138,10 @@ int main() {
                 {
                     int hopLength = stoi(tokens[6]);
                     bug = new Hopper(type, id, x, y, direction, size, hopLength);
+                }
+                else if(type == 'B')
+                {
+                    bug = new BattleAnt(type, id, x, y, direction, size);
                 }
 
                 //Check if the bug pointer is not null

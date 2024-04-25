@@ -14,4 +14,6 @@ add_executable(CA2_BugsLife_Michal_Becmer_D00256088 main.cpp
         Hopper.h
         Crawler.cpp
         Crawler.h
+        BattleAnt.cpp
+        BattleAnt.h
 )

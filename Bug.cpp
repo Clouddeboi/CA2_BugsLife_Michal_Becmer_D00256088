@@ -6,9 +6,13 @@ Bug::~Bug() {
 
 }
 
-Bug::Bug(char type, int id,int x,int y, int direction, int size
-         )
-        : type(type), id(id), position(x,y), size(size), alive(true), path() {}
+Bug::Bug(char type, int id, int x, int y, int direction, int size)
+        : type(type), id(id), position(x, y), size(size), alive(true), path() {
+    // Convert the integer direction to Direction enum
+    this->direction = static_cast<Direction>(direction);
+}
+
+
 
 
 char Bug::getType() const {

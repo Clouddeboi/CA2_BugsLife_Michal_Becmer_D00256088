@@ -15,18 +15,18 @@
 using namespace std;
 
 //function for converting int to direction
-Direction DirectionToInt(int value) {
-    switch(value) {
-        case 1:
-            return Direction::North;
-        case 2:
-            return Direction::East;
-        case 3:
-            return Direction::South;
-        case 4:
-            return Direction::West;
+int directionToInt(Direction direction) {
+    switch(direction) {
+        case Direction::North:
+            return 1;
+        case Direction::East:
+            return 2;
+        case Direction::South:
+            return 3;
+        case Direction::West:
+            return 4;
         default:
-            return Direction::North; // Default to North if unknown direction
+            return 0; // Handle unknown direction
     }
 }
 // Function to convert direction integer to string
@@ -71,7 +71,8 @@ void findByID(const vector<Bug*>& bugs) {
     {
         if (bug->getId() == searchId)
         {
-            cout << "Bug with ID " << searchId << " found!" << endl;
+            cout << "\nBug with ID " << searchId << " found!\n" << endl;
+            headings();
             display(*bug);
             found = true;
             break;
@@ -101,14 +102,17 @@ int main() {
     while (getline(file, line))
     {
         stringstream ss(line);
-        vector<string> tokens;
+        vector<string> tokens;//vector for storing tokens
         string token;
+        //get tokens using delimiter ;
         while (getline(ss, token, ';'))
         {
+            //stores tokens in token vector
             tokens.push_back(token);
         }
 
         try {
+            //Extracting the bug information from the tokenized line
             char type = tokens[0][0];
             int id = stoi(tokens[1]);
             int x = stoi(tokens[2]);
@@ -116,22 +120,26 @@ int main() {
             int direction = stoi(tokens[4]);
             int size = stoi(tokens[5]);
 
+            //line for testing
             //cout << "Creating bug from line: " << line << endl;
 
-            Bug* bug = nullptr;
+            Bug* bug = nullptr;//Initialize a pointer to Bug object to nullptr
+            //if the bugs type is Crawler(C)
             if (type == 'C')
             {
                 bug = new Crawler(type, id, x, y, direction, size);
             }
+            //if the bugs type is Hopper(H)
             else if (type == 'H')
             {
                 int hopLength = stoi(tokens[6]);
                 bug = new Hopper(type, id, x, y, direction, size, hopLength);
             }
 
+            //Check if the bug pointer is not null
             if (bug) {
-                vect.push_back(bug);
-                bugBoard.addBugToBoard(*bug);
+                vect.push_back(bug);//Add the bug pointer to vector
+                bugBoard.addBugToBoard(*bug);//Add the bug object to board
             }
         }
         catch (const invalid_argument& e)

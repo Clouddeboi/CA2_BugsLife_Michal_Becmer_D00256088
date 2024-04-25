@@ -2,6 +2,7 @@
 #define CA2_BUGSLIFE_MICHAL_BECMER_D00256088_CRAWLER_H
 
 #include "Bug.h"
+#include "Board.h"
 
 class Crawler : public Bug{
 

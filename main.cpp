@@ -86,129 +86,142 @@ void findByID(const vector<Bug*>& bugs) {
 }
 
 int main() {
-    vector<Bug*> vect; // Vector to hold all bugs
-    Board bugBoard; //BugBoard obj
-
-    ifstream file("Bugs.txt");//Open file for reading bugs
-
-    if (!file.is_open())
+    while(true)
     {
-        //Check if file can be opened
-        cout << "Cannot Open File!" << endl;
-        return 1;
-    }
+        vector<Bug*> vect; // Vector to hold all bugs
+        Board bugBoard; //BugBoard obj
 
-    string line; //for storing each line read from file
-    while (getline(file, line))
-    {
-        stringstream ss(line);
-        vector<string> tokens;//vector for storing tokens
-        string token;
-        //get tokens using delimiter ;
-        while (getline(ss, token, ';'))
+        ifstream file("Bugs.txt");//Open file for reading bugs
+
+        if (!file.is_open())
         {
-            //stores tokens in token vector
-            tokens.push_back(token);
+            //Check if file can be opened
+            cout << "Cannot Open File!" << endl;
+            return 1;
         }
 
-        try {
-            //Extracting the bug information from the tokenized line
-            char type = tokens[0][0];
-            int id = stoi(tokens[1]);
-            int x = stoi(tokens[2]);
-            int y = stoi(tokens[3]);
-            int direction = stoi(tokens[4]);
-            int size = stoi(tokens[5]);
-
-            //line for testing
-            //cout << "Creating bug from line: " << line << endl;
-
-            Bug* bug = nullptr;//Initialize a pointer to Bug object to nullptr
-            //if the bugs type is Crawler(C)
-            if (type == 'C')
-            {
-                bug = new Crawler(type, id, x, y, direction, size);
-            }
-            //if the bugs type is Hopper(H)
-            else if (type == 'H')
-            {
-                int hopLength = stoi(tokens[6]);
-                bug = new Hopper(type, id, x, y, direction, size, hopLength);
-            }
-
-            //Check if the bug pointer is not null
-            if (bug) {
-                vect.push_back(bug);//Add the bug pointer to vector
-                bugBoard.addBugToBoard(*bug);//Add the bug object to board
-            }
-        }
-        catch (const invalid_argument& e)
+        string line; //for storing each line read from file
+        while (getline(file, line))
         {
-            cerr << "Invalid input: " << e.what() << endl;
+            stringstream ss(line);
+            vector<string> tokens;//vector for storing tokens
+            string token;
+            //get tokens using delimiter ;
+            while (getline(ss, token, ';'))
+            {
+                //stores tokens in token vector
+                tokens.push_back(token);
+            }
+
+            try {
+                //Extracting the bug information from the tokenized line
+                char type = tokens[0][0];
+                int id = stoi(tokens[1]);
+                int x = stoi(tokens[2]);
+                int y = stoi(tokens[3]);
+                int direction = stoi(tokens[4]);
+                int size = stoi(tokens[5]);
+
+                //line for testing
+                //cout << "Creating bug from line: " << line << endl;
+
+                Bug* bug = nullptr;//Initialize a pointer to Bug object to nullptr
+                //if the bugs type is Crawler(C)
+                if (type == 'C')
+                {
+                    bug = new Crawler(type, id, x, y, direction, size);
+                    //cout << "Created Crawler with ID " << id << " at position (" << x << ", " << y << ") facing " << directionString(direction) << endl;
+                }
+                    //if the bugs type is Hopper(H)
+                else if (type == 'H')
+                {
+                    int hopLength = stoi(tokens[6]);
+                    bug = new Hopper(type, id, x, y, direction, size, hopLength);
+                }
+
+                //Check if the bug pointer is not null
+                if (bug) {
+                    vect.push_back(bug);//Add the bug pointer to vector
+                    bugBoard.addBugToBoard(*bug);//Add the bug object to board
+                }
+            }
+            catch (const invalid_argument& e)
+            {
+                cerr << "Invalid input: " << e.what() << endl;
+            }
+
+        }
+        // Close the file
+        file.close();
+
+        int userChoice; // Variable to store user's choice
+
+
+        // Display menu
+        cout << "----Menu----" << endl;
+        cout << "What would you like to do?" << endl;
+        cout << "1. Initialize Bug Board" << endl;
+        cout << "2. Display All Bugs" << endl;
+        cout << "3. Find Bug By ID" << endl;
+        cout << "4. SHAKE BOARD!!!" << endl;
+        cout << "5. Display Life History of all bugs" << endl;
+        cout << "6. Display all Cells" << endl;
+        cout << "7. PLAY GAME" << endl;
+        cout << "8. Exit" << endl;
+        cin >> userChoice; // Get user's choice
+
+        //adds bug to the board
+        for(const auto& bug: vect)//loops through the vector of bugs
+        {
+            bugBoard.addBugToBoard(*bug);//adds to the board
         }
 
-    }
-    // Close the file
-    file.close();
+        // Based on user's choice, perform appropriate action
+        switch (userChoice) {
+            case 1:
+                cout << "Bug Board Initialized!\n" << endl;
+                bugBoard.displayBoard();
+                break;
+            case 2:
+                //headers
+                headings();
+                // Display All Bugs
+                for (Bug* bug : vect) {
+                    display(*bug);
+                }
+                break;
+            case 3:
+                //Find Bug By ID
+                findByID(vect);
+                break;
+            case 4:
+                // SHAKE BOARD!!!
+                for(Bug* bug:vect)
+                {
+                    if(bug->getType()== 'C')//for moving crawlers only
+                    {
+                        bug->move();
+                    }
+                }
+                //bugBoard.displayBoard();
 
-    int userChoice; // Variable to store user's choice
-
-
-    // Display menu
-    cout << "----Menu----" << endl;
-    cout << "What would you like to do?" << endl;
-    cout << "1. Initialize Bug Board" << endl;
-    cout << "2. Display All Bugs" << endl;
-    cout << "3. Find Bug By ID" << endl;
-    cout << "4. SHAKE BOARD!!!" << endl;
-    cout << "5. Display Life History of all bugs" << endl;
-    cout << "6. Display all Cells" << endl;
-    cout << "7. PLAY GAME" << endl;
-    cout << "8. Exit" << endl;
-    cin >> userChoice; // Get user's choice
-
-    //adds bug to the board
-    for(const auto& bug: vect)//loops through the vector of bugs
-    {
-        bugBoard.addBugToBoard(*bug);//adds to the board
-    }
-
-    // Based on user's choice, perform appropriate action
-    switch (userChoice) {
-        case 1:
-            cout << "Bug Board Initialized!\n" << endl;
-            bugBoard.displayBoard();
-            break;
-        case 2:
-            //headers
-            headings();
-            // Display All Bugs
-            for (Bug* bug : vect) {
-                display(*bug);
-            }
-            break;
-        case 3:
-            //Find Bug By ID
-            findByID(vect);
-            break;
-        case 4:
-            // SHAKE BOARD!!!
-            break;
-        case 5:
-            // Display Life History of all bugs
-            break;
-        case 6:
-            // Display all Cells
-            break;
-        case 7:
-            // PLAY GAME
-            break;
-        case 8:
-            // Exit
-            return 0;
-        default:
-            cerr << "Invalid Option!" << endl;
-            break;
+                break;
+            case 5:
+                // Display Life History of all bugs
+                break;
+            case 6:
+                // Display all Cells
+                break;
+            case 7:
+                // PLAY GAME
+                break;
+            case 8:
+                // Exit
+                return 0;
+            default:
+                cerr << "Invalid Option!" << endl;
+                break;
+        }
     }
     return 0;
 }

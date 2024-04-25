@@ -59,3 +59,37 @@ bool Board::isWayBlocked(const pair<int, int>& pos, Direction dir) const {
             return true; // Unknown direction
     }
 }
+
+void Board::displayAllCells(const vector<Bug*>& bugs) const {
+    //gets the grid
+    const auto& grid = getGrid();
+
+    //loops through each row
+    for (int i = 0; i < grid.size(); ++i)
+    {
+        //loops through each column
+        for (int j = 0; j < grid[i].size(); ++j)
+        {
+            //printing coords of current cell
+            cout << "(" << i << ", " << j << "): ";
+            bool bugFound = false;
+            //looping through bugs to see if it is in a cell
+            for (const Bug* bug : bugs)
+            {
+                //checking if bug is in coords of current cell
+                if (bug->getPosition().first == i && bug->getPosition().second == j)
+                {
+                    cout << "Bug Type: " << bug->getType() << ", ID: " << bug->getId() << " ";
+                    bugFound = true;//if bug is found sets it to true
+                }
+            }
+            if (!bugFound)
+            {
+                //if there is no bug leave it as empty
+                cout << "Empty";
+            }
+            cout << endl;
+        }
+    }
+}
+

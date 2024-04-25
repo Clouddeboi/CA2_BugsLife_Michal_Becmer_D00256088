@@ -220,6 +220,7 @@ int main() {
                 break;
             case 6:
                 // Display all Cells
+                bugBoard.displayAllCells(vect);
                 break;
             case 7:
                 // PLAY GAME

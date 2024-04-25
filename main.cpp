@@ -217,6 +217,14 @@ int main() {
                         bug->move();
                     }
                 }
+                cout << "----Battle Ants----\n" << endl;
+                for(Bug* bug : vect)
+                {
+                    if(bug -> getType() == 'B')
+                    {
+                        bug -> move();
+                    }
+                }
                 //bugBoard.displayBoard();
 
                 break;

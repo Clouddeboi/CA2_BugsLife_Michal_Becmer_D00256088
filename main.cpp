@@ -196,9 +196,18 @@ int main() {
                 break;
             case 4:
                 // SHAKE BOARD!!!
-                for(Bug* bug:vect)
+                cout << "----Crawlers----\n" << endl;
+                for(Bug* bug : vect)
                 {
                     if(bug->getType()== 'C')//for moving crawlers only
+                    {
+                        bug->move();
+                    }
+                }
+                cout << "----Hoppers----\n" << endl;
+                for(Bug* bug : vect)
+                {
+                    if(bug ->getType() == 'H')
                     {
                         bug->move();
                     }

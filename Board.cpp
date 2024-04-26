@@ -46,6 +46,53 @@ void Board::tapBoard(const vector<Bug*> &vect){
     }
 }
 
+void Board::fight(vector<Bug*>& vect) {
+    // Iterate through all bugs
+    for (auto it = vect.begin(); it != vect.end(); ++it)
+    {
+        Bug* bug1 = *it;
+        // Check if the bug is still alive
+        if (!bug1->isAlive())
+        {
+            continue;
+        }
+        // Get current bug's position
+        pair<int, int> bug1Position = bug1->getPosition();
+
+        // Check for collisions with other bugs
+        for (auto otherIt = it + 1; otherIt != vect.end(); ++otherIt)
+        {
+            Bug* bug2 = *otherIt;
+            // Check if the other bug is still alive
+            if (!bug2->isAlive())
+            {
+                continue;
+            }
+            // Get other bug's position
+            pair<int, int> bug2Position = bug2->getPosition();
+
+            // Check if bugs occupy the same position
+            if (bug1Position == bug2Position)
+            {
+                // Resolve conflict
+                if (bug1->getSize() > bug2->getSize())
+                {
+                    // Current bug wins, remove other bug
+                    bug2->setAlive(false);
+                    cout << "Bug " << bug2->getId() << " has been defeated by Bug " << bug1->getId() << endl;
+                }
+                else
+                {
+                    // Other bug wins, remove current bug
+                    bug1->setAlive(false);
+                    cout << "Bug " << bug1->getId() << " has been defeated by Bug " << bug2->getId() << endl;
+                    break; // Break to avoid further collisions with the defeated bug
+                }
+            }
+        }
+    }
+}
+
 void Board::displayAllCells(const vector<Bug*>& bugs) const {
     //gets the grid
     const auto& grid = getGrid();

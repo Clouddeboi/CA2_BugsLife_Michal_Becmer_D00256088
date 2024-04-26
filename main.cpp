@@ -90,25 +90,32 @@ void displayLifeHistory(const vector<Bug*>& vect) {
     //iterating through the bug vector (going through each bug)
     for (const auto& bug : vect)
     {
-        cout << "ID: " << bug->getId() << "Path: ";
+        cout << "ID: " << bug->getId() << " :Path: ";
 
-        //Get the bug's path history
-        const auto& path = bug->getPath();
-
-        //Iterate through aquired path history
-        auto iterate = path.begin();
-
-        if (iterate != path.end())
+        if(bug->isAlive())
         {
-            //Display the first position
-            cout << "(" << iterate->first << "," << iterate->second << ")";
-            ++iterate;
+            //Get the bug's path history
+            const auto& path = bug->getPath();
+
+            //Iterate through aquired path history
+            auto iterate = path.begin();
+
+            if (iterate != path.end())
+            {
+                //Display the first position
+                cout << "(" << iterate->first << "," << iterate->second << ")";
+                ++iterate;
+            }
+
+            //Display next positions
+            for (; iterate != path.end(); ++iterate)
+            {
+                cout << " -> (" << iterate->first << "," << iterate->second << ")";
+            }
         }
-
-        //Display next positions
-        for (; iterate != path.end(); ++iterate)
+        else
         {
-            cout << " -> (" << iterate->first << "," << iterate->second << ")";
+            cout << "Dead";
         }
 
         cout << endl;//skip line for next bug
@@ -133,19 +140,32 @@ void writeBugHistoryToFile(const vector<Bug*> vect, const string& filename){
         //write the bug's ID to the file
         outputFile << "ID: " << bug->getId() << " Path: ";
 
-        //bugs life history
-        const auto& path = bug->getPath();
-
-        //iterates through bugs life history
-        for(auto iterate = path.begin(); iterate != path.end(); ++iterate)
+        //checking if the bug is alive
+        if(bug->isAlive())
         {
-            //writing position to file
-            outputFile << "(" << iterate->first << "," << iterate->second << ")";
-            if(next(iterate) != path.end())
+            //bugs life history
+            const auto& path = bug->getPath();
+
+            //iterates through bugs path history
+            for(auto iterate = path.begin(); iterate != path.end(); ++iterate)
             {
-                outputFile << " ->";
+                //writing position to file
+                outputFile << "(" << iterate->first << "," << iterate->second << ")";
+                if(next(iterate) != path.end())
+                {
+                    outputFile << " ->";
+                }
+                //check if the bug died at that specific position
+                if (!bug->isAlive()) {
+                    break; //Stop writing the path history if the bug is dead
+                }
             }
         }
+        else
+        {
+            outputFile << "Dead";
+        }
+
         //moves to next line to get next bug
         outputFile << endl;
     }
@@ -268,6 +288,7 @@ int main() {
             case 4:
                 // SHAKE BOARD!!!
                 bugBoard.tapBoard(vect);
+                bugBoard.fight(vect);
                 //bugBoard.displayBoard();
 
                 break;

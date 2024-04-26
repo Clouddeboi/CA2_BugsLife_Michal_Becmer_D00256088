@@ -18,9 +18,9 @@ public:
 
     void addBugToBoard(const Bug& bug);
     void displayBoard();
-    bool isWayBlocked(const std::pair<int, int>& position, Direction direction) const;
     void tapBoard(const vector<Bug*> & vect);
     void displayAllCells(const vector<Bug*>& bugs) const;
+    void fight(vector<Bug*>& vect);
 };
 
 #endif //CA2_BUGSLIFE_MICHAL_BECMER_D00256088_BOARD_H

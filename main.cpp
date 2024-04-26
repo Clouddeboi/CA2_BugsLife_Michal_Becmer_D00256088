@@ -86,6 +86,72 @@ void findByID(const vector<Bug*>& bugs) {
     }
 }
 
+void displayLifeHistory(const vector<Bug*>& vect) {
+    //iterating through the bug vector (going through each bug)
+    for (const auto& bug : vect)
+    {
+        cout << "ID: " << bug->getId() << "Path: ";
+
+        //Get the bug's path history
+        const auto& path = bug->getPath();
+
+        //Iterate through aquired path history
+        auto iterate = path.begin();
+
+        if (iterate != path.end())
+        {
+            //Display the first position
+            cout << "(" << iterate->first << "," << iterate->second << ")";
+            ++iterate;
+        }
+
+        //Display next positions
+        for (; iterate != path.end(); ++iterate)
+        {
+            cout << " -> (" << iterate->first << "," << iterate->second << ")";
+        }
+
+        cout << endl;//skip line for next bug
+    }
+}
+
+void writeBugHistoryToFile(const vector<Bug*> vect, const string& filename){
+
+    //opening the file to write to
+    ofstream outputFile(filename);
+
+    //checking if its successfully open
+    if(!outputFile.is_open())
+    {
+        cout<< "Couldn't open file!" << filename << endl;
+        return;
+    }
+
+    //Iterate through bug vector
+    for(const auto& bug : vect)
+    {
+        //write the bug's ID to the file
+        outputFile << "ID: " << bug->getId() << " Path: ";
+
+        //bugs life history
+        const auto& path = bug->getPath();
+
+        //iterates through bugs life history
+        for(auto iterate = path.begin(); iterate != path.end(); ++iterate)
+        {
+            //writing position to file
+            outputFile << "(" << iterate->first << "," << iterate->second << ")";
+            if(next(iterate) != path.end())
+            {
+                outputFile << " ->";
+            }
+        }
+        //moves to next line to get next bug
+        outputFile << endl;
+    }
+}
+
+
 int main() {
         vector<Bug*> vect; // Vector to hold all bugs
         Board bugBoard; //BugBoard obj
@@ -158,8 +224,9 @@ int main() {
         file.close();
 
         int userChoice; // Variable to store user's choice
+        bool run = true;
 
-    while(true)
+    while(run)
     {
         // Display menu
         cout << "----Menu----" << endl;
@@ -206,6 +273,7 @@ int main() {
                 break;
             case 5:
                 // Display Life History of all bugs
+                displayLifeHistory(vect);
                 break;
             case 6:
                 // Display all Cells
@@ -216,7 +284,9 @@ int main() {
                 break;
             case 8:
                 // Exit
-                return 0;
+                writeBugHistoryToFile(vect, "bugs_life_history_date_time.out");
+                run = false;
+                break;
             default:
                 cerr << "Invalid Option!" << endl;
                 break;

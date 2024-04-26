@@ -63,5 +63,28 @@ void Bug::setAlive(bool alive) {
     Bug::alive = alive;
 }
 
+list<pair<int, int>> &Bug::getPath(){
+    return path;
+}
+
+void Bug::setPath(const list<pair<int, int>> &path) {
+    Bug::path = path;
+}
+
+bool Bug::isWayBlocked() {
+    switch (direction) {
+        case Direction::North:
+            return (position.second == 0);          //y axis = 0 the bug is at the top edge
+        case Direction::East:
+            return (position.first == 9);           //x axis = 9 the bug is at the right edge
+        case Direction::South:
+            return (position.second == 9);          //y axis = 9 the bug is at the bottom edge
+        case Direction::West:
+            return (position.first == 0);           //x axis = 0 the bug is at the lef edge
+        default:
+            return true; //will return true, meaning the path is blocked
+    }
+}
+
 Bug::Bug() {}
 

@@ -87,8 +87,6 @@ void findByID(const vector<Bug*>& bugs) {
 }
 
 int main() {
-    while(true)
-    {
         vector<Bug*> vect; // Vector to hold all bugs
         Board bugBoard; //BugBoard obj
 
@@ -161,7 +159,8 @@ int main() {
 
         int userChoice; // Variable to store user's choice
 
-
+    while(true)
+    {
         // Display menu
         cout << "----Menu----" << endl;
         cout << "What would you like to do?" << endl;
@@ -201,30 +200,7 @@ int main() {
                 break;
             case 4:
                 // SHAKE BOARD!!!
-                cout << "----Crawlers----\n" << endl;
-                for(Bug* bug : vect)
-                {
-                    if(bug->getType()== 'C')//for moving crawlers only
-                    {
-                        bug->move();
-                    }
-                }
-                cout << "----Hoppers----\n" << endl;
-                for(Bug* bug : vect)
-                {
-                    if(bug ->getType() == 'H')
-                    {
-                        bug->move();
-                    }
-                }
-                cout << "----Battle Ants----\n" << endl;
-                for(Bug* bug : vect)
-                {
-                    if(bug -> getType() == 'B')
-                    {
-                        bug -> move();
-                    }
-                }
+                bugBoard.tapBoard(vect);
                 //bugBoard.displayBoard();
 
                 break;

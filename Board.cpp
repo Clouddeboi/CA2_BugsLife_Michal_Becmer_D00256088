@@ -38,25 +38,11 @@ void Board::displayBoard()
     }
 }
 
-bool Board::isWayBlocked(const pair<int, int>& pos, Direction dir) const {
-    //extracting x and y coordinates from pair
-    int x = pos.first;
-    int y = pos.second;
+void Board::tapBoard(const vector<Bug*> &vect){
 
-    //Check the direction of movement and whether the way is blocked
-    switch (dir) {
-        //Check if moving north would lead to a position out of bounds
-        //or if the position immediately north of the bug is occupied
-        case Direction::North:
-            return (y + 1 >= grid.size()) || (grid[y + 1][x] != '-');
-        case Direction::East:
-            return (x + 1 >= grid[0].size()) || (grid[y][x + 1] != '-');
-        case Direction::South:
-            return (y - 1 < 0) || (grid[y - 1][x] != '-');
-        case Direction::West:
-            return (x - 1 < 0) || (grid[y][x - 1] != '-');
-        default:
-            return true; // Unknown direction
+    for(Bug* bug : vect)
+    {
+        bug -> move();
     }
 }
 
@@ -92,4 +78,3 @@ void Board::displayAllCells(const vector<Bug*>& bugs) const {
         }
     }
 }
-

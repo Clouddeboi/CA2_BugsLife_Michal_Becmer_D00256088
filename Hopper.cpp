@@ -18,39 +18,40 @@ void Hopper::move() {
     cout << "Old Position: (" << getPosition().first << ", " << getPosition().second << ")" << endl;
 
     pair<int, int> newPos = getPosition();
-    auto currentDirection = getDirection();
 
-    Board board;
+    //check if way is blocked
+    while(isWayBlocked())
+    {
+        cout << "Path Obstructed! Redirecting..." <<endl;
+        direction = static_cast<Direction>(1 + (rand() % 4));
+    }
 
-    if (!board.isWayBlocked(newPos, currentDirection)) {
-
-        switch (currentDirection) {
-            case Direction::North:
-                newPos.second += hopLength;
-                break;
-            case Direction::East:
-                newPos.first += hopLength;
-                break;
-            case Direction::South:
-                newPos.second -= hopLength;
-                break;
-            case Direction::West:
-                newPos.first -= hopLength;
-                break;
-        }
+    //if its clear, move
+    switch (direction) {
+        case Direction::North:
+            newPos.second--;
+            cout << "Moving North" << endl;
+            break;
+        case Direction::East:
+            newPos.first++;
+            cout << "Moving East" << endl;
+            break;
+        case Direction::South:
+            newPos.second++;
+            cout << "Moving South" << endl;
+            break;
+        case Direction::West:
+            newPos.first--;
+            cout << "Moving West" << endl;
+            break;
+    }
         //update new position and print
         setPosition(newPos);
+        getPath().push_back(newPos);
         cout << "New Position: (" << getPosition().first << ", " << getPosition().second << ")\n" << endl;
-    }
-    else
-    {
-        int randomDir = rand() % 4 + 1;//chooses random direction from 1-4
-        setDirection(static_cast<Direction>(randomDir));//sets new direction
-        cout << "This Direction is blocked! Redirecting!\n" << endl;
-        move(); //recursive function calling move to move after changing direction
-    }
+
+
 
 }
-
 
 

@@ -12,18 +12,19 @@ void Crawler::move() {
     cout << "Old Position: (" << getPosition().first << ", " << getPosition().second << ")" << endl;
 
     pair<int, int> newPos = getPosition();
-    auto currentDirection = getDirection();
 
-    //create board obj to check if a way is blocked
-    Board board;
 
     //check if way is blocked
-    if(!board.isWayBlocked(newPos, currentDirection))
+    while(isWayBlocked())
     {
+        cout << "Path Obstructed! Redirecting..." <<endl;
+        direction = static_cast<Direction>(1 + (rand() % 4));
+    }
+
         //if its clear, move
-        switch (currentDirection) {
+        switch (direction) {
             case Direction::North:
-                newPos.second++;
+                newPos.second--;
                 cout << "Moving North" << endl;
                 break;
             case Direction::East:
@@ -31,7 +32,7 @@ void Crawler::move() {
                 cout << "Moving East" << endl;
                 break;
             case Direction::South:
-                newPos.second--;
+                newPos.second++;
                 cout << "Moving South" << endl;
                 break;
             case Direction::West:
@@ -41,13 +42,8 @@ void Crawler::move() {
         }
         //update new position and print
         setPosition(newPos);
+        getPath().push_back(newPos);
+
         cout << "New Position: (" << getPosition().first << ", " << getPosition().second << ")\n" << endl;
-    }
-    else//if the way is blocked
-    {
-        int randomDir = rand() % 4 + 1;//chooses random direction from 1-4
-        setDirection(static_cast<Direction>(randomDir));//sets new direction
-        cout<<"This Direction is blocked! Redirecting!\n" << endl;
-        move(); //recursive function calling move to move after changing direction
-    }
+
 }

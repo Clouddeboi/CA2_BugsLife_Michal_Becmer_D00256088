@@ -5,6 +5,7 @@
 #include <vector>
 #include <list>
 #include <utility>
+#include <thread>
 
 #include "Bug.h"
 #include "Direction.h"
@@ -173,7 +174,7 @@ void writeBugHistoryToFile(const vector<Bug*> vect, const string& filename){
 
 
 int main() {
-        vector<Bug*> vect; // Vector to hold all bugs
+        vector<Bug*> vect; //Vector to hold all bugs
         Board bugBoard; //BugBoard obj
 
         ifstream file("Bugs.txt");//Open file for reading bugs
@@ -302,6 +303,21 @@ int main() {
                 break;
             case 7:
                 // PLAY GAME
+                cout << "Starting Game...." << endl;
+                cout << "START!" << endl;
+
+                while (bugBoard.getNumBugs() > 1)
+                {
+                    bugBoard.tapBoard(vect);
+                    bugBoard.fight(vect);
+
+                    this_thread::sleep_for(chrono::seconds(1));//allows the loop to run once per second
+
+                    if(bugBoard.getNumBugs() == 1)
+                    {
+                        cout << "GAME OVER!" << endl;
+                    }
+                }
                 break;
             case 8:
                 // Exit

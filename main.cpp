@@ -313,17 +313,21 @@ int main() {
                 cout << "Starting Game...." << endl;
                 cout << "START!" << endl;
 
-                while (bugBoard.getNumBugs() > 1)
+                //if the game isnt over
+                while (!bugBoard.isGameOver(vect))
                 {
+                    //tap the board and check if they can fight
                     bugBoard.tapBoard(vect);
                     bugBoard.fight(vect);
 
                     this_thread::sleep_for(chrono::seconds(1));//allows the loop to run once per second
-
-                    if(bugBoard.getNumBugs() == 1)
-                    {
-                        cout << "GAME OVER!" << endl;
-                    }
+                }
+                //if the game is over
+                if(bugBoard.isGameOver(vect))
+                {
+                    //print out msg and write to file
+                    cout<< "GAME OVER!!!!" << endl;
+                    writeBugHistoryToFile(vect, "bugs_life_history_date_time.out");
                 }
                 break;
             case 8:

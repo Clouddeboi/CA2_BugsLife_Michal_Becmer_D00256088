@@ -30,18 +30,22 @@ void Hopper::move() {
     switch (direction) {
         case Direction::North:
             newPos.second-= hopLength;
+            if(newPos.second < 0) newPos.second = 0;
             cout << "Moving North" << endl;
             break;
         case Direction::East:
             newPos.first+=hopLength;
+            if(newPos.first > 9) newPos.first = 9;
             cout << "Moving East" << endl;
             break;
         case Direction::South:
             newPos.second+=hopLength;
+            if(newPos.second > 9) newPos.second = 9;
             cout << "Moving South" << endl;
             break;
         case Direction::West:
             newPos.first-=hopLength;
+            if(newPos.first < 0) newPos.first = 0;
             cout << "Moving West" << endl;
             break;
     }

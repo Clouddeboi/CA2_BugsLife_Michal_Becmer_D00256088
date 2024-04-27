@@ -1,9 +1,2 @@
-ID: 1 Path: 
-ID: 2 Path: (2,3)
-ID: 3 Path: 
-ID: 4 Path: 
-ID: 5 Path: (9,5)
-ID: 6 Path: (9,0)
-ID: 7 Path: 
-ID: 8 Path: 
-ID: 9 Path: 
+ID: 7 Path: Dead
+ID: 9 Path: (8,7) ->(7,7)

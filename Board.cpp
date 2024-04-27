@@ -3,14 +3,11 @@
 
 using namespace std;
 
-Board::Board() : numBugs(0) {
+Board::Board(){
     // Initialize the grid to be 10x10, empty spaces will have an '-'
     grid.assign(10, vector<char>(10, '-'));
 }
 
-int Board::getNumBugs() const {
-    return numBugs;
-}
 
 const vector<vector<char>>& Board::getGrid() const {
     return grid;
@@ -24,26 +21,11 @@ void Board::addBugToBoard(const Bug& bug) {
         char bugType = bug.getType();
         // Add bug to the bug board at the found position and put its type on the board
         grid[position.first][position.second] = bug.getType();
-        numBugs++;
     } else {
         cerr << "Bug position is out of bounds!" << endl; // Error message if bug is out of bounds
     }
 }
 
-// Function to remove a bug from the board
-void Board::removeBugFromBoard(const Bug& bug) {
-    //Get bug position
-    pair<int, int> position = bug.getPosition();
-    //Check if the position is within bounds
-    if (position.first >= 0 && position.first < grid.size() && position.second >= 0 && position.second < grid[0].size()) {
-        //Remove bug from the bug board at the found position
-        grid[position.first][position.second] = '-';
-        //Decrement the number of bugs
-        numBugs--;
-    } else {
-        cerr << "Bug position is out of bounds!" << endl;
-    }
-}
 
 void Board::displayBoard()
 {
@@ -62,11 +44,11 @@ void Board::tapBoard(const vector<Bug*> &vect){
 
     for(Bug* bug : vect)
     {
-        //if the bug is alive it can move
-        if(bug->isAlive())
-        {
-            bug -> move();
-        }
+            //if the bug is alive it can move
+            if(bug->isAlive())
+            {
+                bug -> move();
+            }
     }
 }
 
@@ -104,19 +86,52 @@ void Board::fight(vector<Bug*>& vect) {
                     // Current bug wins, remove other bug
                     bug2->setAlive(false);
                     cout << "Bug " << bug2->getId() << " has been defeated by Bug " << bug1->getId() << endl;
-                    removeBugFromBoard(*bug2);
                 }
-                else
+                else if (bug1->getSize() < bug2->getSize())
                 {
                     // Other bug wins, remove current bug
                     bug1->setAlive(false);
                     cout << "Bug " << bug1->getId() << " has been defeated by Bug " << bug2->getId() << endl;
-                    removeBugFromBoard(*bug1);
                     break; // Break to avoid further collisions with the defeated bug
+                }
+                else if (bug1->getSize() == bug2->getSize())
+                {
+                    int Winner = rand() % 2;
+                    if(Winner == 0)
+                    {
+                        bug2->setAlive(false);
+                        cout << "Bug " << bug2->getId() << " has been defeated by Bug " << bug1->getId() << endl;
+                    }
+                    else
+                    {
+                        bug1->setAlive(false);
+                        cout << "Bug " << bug1->getId() << " has been defeated by Bug " << bug2->getId() << endl;
+                    }
+                    break;
                 }
             }
         }
     }
+}
+
+bool Board:: isGameOver(const vector<Bug*>& vect){
+
+    //check the amount of bugs in the vector
+    int amountAlive = vect.size();
+
+    for(Bug* bug: vect)
+    {
+        if(!bug->isAlive())
+        {
+            amountAlive--;
+        }
+        if(amountAlive == 1)
+        {
+            //if there is one bug left, returns true
+            return true;
+        }
+    }
+    return false;
 }
 
 void Board::displayAllCells(const vector<Bug*>& bugs) const {

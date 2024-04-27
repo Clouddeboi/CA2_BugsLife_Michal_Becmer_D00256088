@@ -9,7 +9,6 @@ using namespace std;
 class Board {
 protected:
     vector<vector<char>> grid; // Grid for the bug board
-    int numBugs;
 public:
     // Constructor
     Board();
@@ -21,8 +20,7 @@ public:
     void tapBoard(const vector<Bug*> & vect);
     void displayAllCells(const vector<Bug*>& bugs) const;
     void fight(vector<Bug*>& vect);
-    int getNumBugs() const;
-    void removeBugFromBoard(const Bug& bug);
+    bool isGameOver(const vector<Bug*>& vect);
 };
 
 #endif //CA2_BUGSLIFE_MICHAL_BECMER_D00256088_BOARD_H

@@ -6,6 +6,7 @@
 #include <list>
 #include <utility>
 #include <thread>
+#include <SFML/Graphics.hpp>
 
 #include "Bug.h"
 #include "Direction.h"
@@ -172,6 +173,43 @@ void writeBugHistoryToFile(const vector<Bug*> vect, const string& filename){
     }
 }
 
+void runWindow(Board& board, vector<Bug*> vect) {
+
+    //render window 480 x 480
+    sf::RenderWindow window(sf::VideoMode(480, 480), "----BugsLife----");
+
+        while (window.isOpen())
+        {
+            sf::Event event;
+
+            while (window.pollEvent(event))
+            {
+                if (event.type == sf::Event::Closed)
+                    window.close();
+
+                //Tap Board feature with fighting
+                //Check for keyboard events
+                if (event.type == sf::Event::KeyPressed)
+                {
+                    //Check if spacebar is clicked
+                    if (event.key.code == sf::Keyboard::Space)
+                    {
+                        // Move all bugs
+                        board.tapBoard(vect);
+                        board.fight(vect);
+                    }
+                }
+            }
+
+            // Clear the window
+            window.clear();
+            // Draw your board and bugs here
+            board.draw(window, vect);
+            // Display the window contents
+            window.display();
+        }
+    }
+
 
 int main() {
         vector<Bug*> vect; //Vector to hold all bugs
@@ -261,6 +299,7 @@ int main() {
         cout << "6. Display all Cells" << endl;
         cout << "7. PLAY GAME" << endl;
         cout << "8. Exit" << endl;
+        cout << "9. Run SFML" << endl;
         cin >> userChoice; // Get user's choice
 
         //adds bug to the board
@@ -320,6 +359,7 @@ int main() {
                     bugBoard.tapBoard(vect);
                     bugBoard.fight(vect);
 
+                    //From stack overflow: https://stackoverflow.com/questions/10807681/loop-every-10-second
                     this_thread::sleep_for(chrono::seconds(1));//allows the loop to run once per second
                 }
                 //if the game is over
@@ -334,6 +374,9 @@ int main() {
                 // Exit
                 writeBugHistoryToFile(vect, "bugs_life_history_date_time.out");
                 run = false;
+                break;
+            case 9:
+                runWindow(bugBoard, vect);
                 break;
             default:
                 cerr << "Invalid Option!" << endl;

@@ -1,13 +1,24 @@
 #include <iostream>
 #include "Board.h"
+#include <SFML/Graphics.hpp>
 
 using namespace std;
 
 Board::Board(){
-    // Initialize the grid to be 10x10, empty spaces will have an '-'
+    //Initialize the grid to be 10x10, empty spaces will have an '-'
     grid.assign(10, vector<char>(10, '-'));
-}
 
+    for (int row = 0; row < 10; row++)
+    {
+        for (int column = 0; column < 10; column++)
+        {
+            sf::RectangleShape rs(sf::Vector2f(48, 48));
+            rs.setFillColor(sf::Color::Green);
+            rs.setPosition(column*48, row*48);
+            squares.push_back(rs);
+        }
+    }
+}
 
 const vector<vector<char>>& Board::getGrid() const {
     return grid;
@@ -26,7 +37,6 @@ void Board::addBugToBoard(const Bug& bug) {
     }
 }
 
-
 void Board::displayBoard()
 {
 
@@ -40,15 +50,15 @@ void Board::displayBoard()
     }
 }
 
-void Board::tapBoard(const vector<Bug*> &vect){
+void Board::tapBoard(const vector<Bug*> &vect) {
 
-    for(Bug* bug : vect)
+    for (Bug *bug: vect)
     {
-            //if the bug is alive it can move
-            if(bug->isAlive())
-            {
-                bug -> move();
-            }
+        //if the bug is alive it can move
+        if (bug->isAlive())
+        {
+            bug->move();
+        }
     }
 }
 
@@ -185,6 +195,38 @@ void Board::displayAllCells(const vector<Bug*>& bugs) const {
             }
             cout << endl;
         }
+    }
+}
+
+void Board::draw(sf::RenderWindow &window, const vector<Bug*>& vect) {
+
+    for (sf::RectangleShape rs : squares)
+    {
+        window.draw(rs);
+    }
+
+    for (const Bug* bug : vect)
+    {
+        sf::CircleShape bugShape(20); // Example size of bug shape
+
+        //Sets the position of the bug shape based on the bug's position on the board
+        bugShape.setPosition(bug->getPosition().second * 48, bug->getPosition().first * 48);
+
+        //sets the colour based on bug type
+        if (bug->getType() == 'C')
+        {
+            bugShape.setFillColor(sf::Color::Red);
+        }
+        else if (bug->getType() == 'H')
+        {
+            bugShape.setFillColor(sf::Color::Blue);
+        }
+        else if (bug->getType() == 'B')
+        {
+            bugShape.setFillColor(sf::Color::Black);
+        }
+        //Draw the bug shape
+        window.draw(bugShape);
     }
 }
 

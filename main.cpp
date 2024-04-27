@@ -246,6 +246,7 @@ int main() {
 
         int userChoice; // Variable to store user's choice
         bool run = true;
+        bool isBoardInitialized = false;//checks if the board is initialized before allowing users to continue using features
 
     while(run)
     {
@@ -268,10 +269,16 @@ int main() {
             bugBoard.addBugToBoard(*bug);//adds to the board
         }
 
+        if(!isBoardInitialized && userChoice != 1)
+        {
+            cout << "Please initialize the board first!" << endl;
+            continue;
+        }
         // Based on user's choice, perform appropriate action
         switch (userChoice) {
             case 1:
                 cout << "Bug Board Initialized!\n" << endl;
+                isBoardInitialized = true;
                 bugBoard.displayBoard();
                 break;
             case 2:

@@ -86,12 +86,23 @@ void Board::fight(vector<Bug*>& vect) {
                     // Current bug wins, remove other bug
                     bug2->setAlive(false);
                     cout << "Bug " << bug2->getId() << " has been defeated by Bug " << bug1->getId() << endl;
+                    //if the bug is a battle ant it increases it size by 2 to account for the -1 size it will gain next turn
+                    if(bug1->getType() == 'B')
+                    {
+                        bug1->setSize(bug1->getSize()+2);
+                        cout << "Bug: " << bug1->getId() << " Sized Increased" << endl;
+                    }
                 }
                 else if (bug1->getSize() < bug2->getSize())
                 {
                     // Other bug wins, remove current bug
                     bug1->setAlive(false);
                     cout << "Bug " << bug1->getId() << " has been defeated by Bug " << bug2->getId() << endl;
+                    if(bug2->getType() == 'B')
+                    {
+                        bug2->setSize(bug2->getSize()+2);
+                        cout << "Bug: " << bug2->getId() << " Sized Increased" << endl;
+                    }
                     break; // Break to avoid further collisions with the defeated bug
                 }
                 else if (bug1->getSize() == bug2->getSize())
@@ -101,11 +112,21 @@ void Board::fight(vector<Bug*>& vect) {
                     {
                         bug2->setAlive(false);
                         cout << "Bug " << bug2->getId() << " has been defeated by Bug " << bug1->getId() << endl;
+                        if(bug1->getType() == 'B')
+                        {
+                            bug1->setSize(bug1->getSize()+2);
+                            cout << "Bug: " << bug1->getId() << " Sized Increased" << endl;
+                        }
                     }
                     else
                     {
                         bug1->setAlive(false);
                         cout << "Bug " << bug1->getId() << " has been defeated by Bug " << bug2->getId() << endl;
+                        if(bug2->getType() == 'B')
+                        {
+                            bug2->setSize(bug2->getSize()+2);
+                            cout << "Bug: " << bug2->getId() << " Sized Increased" << endl;
+                        }
                     }
                     break;
                 }

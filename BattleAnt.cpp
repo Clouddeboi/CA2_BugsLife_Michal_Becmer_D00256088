@@ -62,7 +62,7 @@ void BattleAnt ::move() {
         //implement getting smaller logic
         if(getSize() > 3)
         {
-            //if larger than 3, lose _1 size
+            //if larger than 3, lose -1 size
             setSize(getSize() - 1);
         }
         else if(getSize() < 3)
@@ -73,7 +73,4 @@ void BattleAnt ::move() {
 
         cout << "New Position: (" << getPosition().first << ", " << getPosition().second << ")\n" << endl;
         cout << "Size Decreased!\nCurrent Size: " << getSize() << "\n" << endl;
-
-
-    //FURTHER IMPLEMENTATION IS NEEDED ONCE EAT/FIGHT FUNCTIONALITY IS IMPLEMENTED
 }

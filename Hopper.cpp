@@ -29,19 +29,19 @@ void Hopper::move() {
     //if its clear, move
     switch (direction) {
         case Direction::North:
-            newPos.second--;
+            newPos.second-= hopLength;
             cout << "Moving North" << endl;
             break;
         case Direction::East:
-            newPos.first++;
+            newPos.first+=hopLength;
             cout << "Moving East" << endl;
             break;
         case Direction::South:
-            newPos.second++;
+            newPos.second+=hopLength;
             cout << "Moving South" << endl;
             break;
         case Direction::West:
-            newPos.first--;
+            newPos.first-=hopLength;
             cout << "Moving West" << endl;
             break;
     }

@@ -12,9 +12,6 @@ Bug::Bug(char type, int id, int x, int y, int direction, int size)
     this->direction = static_cast<Direction>(direction);
 }
 
-
-
-
 char Bug::getType() const {
     return type;
 }
@@ -74,15 +71,15 @@ void Bug::setPath(const list<pair<int, int>> &path) {
 bool Bug::isWayBlocked() {
     switch (direction) {
         case Direction::North:
-            return (position.second == 0);          //y axis = 0 the bug is at the top edge
+            return (position.second == 0);
         case Direction::East:
-            return (position.first == 9);           //x axis = 9 the bug is at the right edge
+            return (position.first == 9);
         case Direction::South:
-            return (position.second == 9);          //y axis = 9 the bug is at the bottom edge
+            return (position.second == 9);
         case Direction::West:
-            return (position.first == 0);           //x axis = 0 the bug is at the lef edge
+            return (position.first == 0);
         default:
-            return true; //will return true, meaning the path is blocked
+            return true;
     }
 }
 

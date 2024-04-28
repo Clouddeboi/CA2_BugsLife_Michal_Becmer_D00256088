@@ -69,6 +69,7 @@ include CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/progress.make
 include CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/flags.make
 
 CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/main.cpp.obj: CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/flags.make
+CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/main.cpp.obj: CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/includes_CXX.rsp
 CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/main.cpp.obj: C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/main.cpp
 CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/main.cpp.obj: CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\micha\CLionProjects\CA2_BugsLife_Michal_Becmer_D00256088V2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/main.cpp.obj"
@@ -83,6 +84,7 @@ CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/main.cpp.s: cmake_force
 	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\micha\CLionProjects\CA2_BugsLife_Michal_Becmer_D00256088V2\main.cpp -o CMakeFiles\CA2_BugsLife_Michal_Becmer_D00256088.dir\main.cpp.s
 
 CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Bug.cpp.obj: CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/flags.make
+CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Bug.cpp.obj: CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/includes_CXX.rsp
 CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Bug.cpp.obj: C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/Bug.cpp
 CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Bug.cpp.obj: CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\micha\CLionProjects\CA2_BugsLife_Michal_Becmer_D00256088V2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Bug.cpp.obj"
@@ -97,6 +99,7 @@ CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Bug.cpp.s: cmake_force
 	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\micha\CLionProjects\CA2_BugsLife_Michal_Becmer_D00256088V2\Bug.cpp -o CMakeFiles\CA2_BugsLife_Michal_Becmer_D00256088.dir\Bug.cpp.s
 
 CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Direction.cpp.obj: CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/flags.make
+CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Direction.cpp.obj: CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/includes_CXX.rsp
 CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Direction.cpp.obj: C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/Direction.cpp
 CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Direction.cpp.obj: CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\micha\CLionProjects\CA2_BugsLife_Michal_Becmer_D00256088V2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Direction.cpp.obj"
@@ -111,6 +114,7 @@ CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Direction.cpp.s: cmake_force
 	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\micha\CLionProjects\CA2_BugsLife_Michal_Becmer_D00256088V2\Direction.cpp -o CMakeFiles\CA2_BugsLife_Michal_Becmer_D00256088.dir\Direction.cpp.s
 
 CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Board.cpp.obj: CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/flags.make
+CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Board.cpp.obj: CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/includes_CXX.rsp
 CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Board.cpp.obj: C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/Board.cpp
 CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Board.cpp.obj: CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\micha\CLionProjects\CA2_BugsLife_Michal_Becmer_D00256088V2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Board.cpp.obj"
@@ -125,6 +129,7 @@ CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Board.cpp.s: cmake_force
 	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\micha\CLionProjects\CA2_BugsLife_Michal_Becmer_D00256088V2\Board.cpp -o CMakeFiles\CA2_BugsLife_Michal_Becmer_D00256088.dir\Board.cpp.s
 
 CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Hopper.cpp.obj: CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/flags.make
+CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Hopper.cpp.obj: CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/includes_CXX.rsp
 CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Hopper.cpp.obj: C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/Hopper.cpp
 CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Hopper.cpp.obj: CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\micha\CLionProjects\CA2_BugsLife_Michal_Becmer_D00256088V2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Hopper.cpp.obj"
@@ -139,6 +144,7 @@ CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Hopper.cpp.s: cmake_force
 	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\micha\CLionProjects\CA2_BugsLife_Michal_Becmer_D00256088V2\Hopper.cpp -o CMakeFiles\CA2_BugsLife_Michal_Becmer_D00256088.dir\Hopper.cpp.s
 
 CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Crawler.cpp.obj: CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/flags.make
+CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Crawler.cpp.obj: CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/includes_CXX.rsp
 CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Crawler.cpp.obj: C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/Crawler.cpp
 CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Crawler.cpp.obj: CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\micha\CLionProjects\CA2_BugsLife_Michal_Becmer_D00256088V2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Crawler.cpp.obj"
@@ -153,6 +159,7 @@ CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Crawler.cpp.s: cmake_force
 	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\micha\CLionProjects\CA2_BugsLife_Michal_Becmer_D00256088V2\Crawler.cpp -o CMakeFiles\CA2_BugsLife_Michal_Becmer_D00256088.dir\Crawler.cpp.s
 
 CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/BattleAnt.cpp.obj: CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/flags.make
+CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/BattleAnt.cpp.obj: CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/includes_CXX.rsp
 CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/BattleAnt.cpp.obj: C:/Users/micha/CLionProjects/CA2_BugsLife_Michal_Becmer_D00256088V2/BattleAnt.cpp
 CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/BattleAnt.cpp.obj: CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\micha\CLionProjects\CA2_BugsLife_Michal_Becmer_D00256088V2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/BattleAnt.cpp.obj"
@@ -187,6 +194,19 @@ CA2_BugsLife_Michal_Becmer_D00256088.exe: CMakeFiles/CA2_BugsLife_Michal_Becmer_
 CA2_BugsLife_Michal_Becmer_D00256088.exe: CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/Crawler.cpp.obj
 CA2_BugsLife_Michal_Becmer_D00256088.exe: CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/BattleAnt.cpp.obj
 CA2_BugsLife_Michal_Becmer_D00256088.exe: CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/build.make
+CA2_BugsLife_Michal_Becmer_D00256088.exe: C:/SFML-2.6.1/lib/libsfml-system-s-d.a
+CA2_BugsLife_Michal_Becmer_D00256088.exe: C:/SFML-2.6.1/lib/libsfml-window-s-d.a
+CA2_BugsLife_Michal_Becmer_D00256088.exe: C:/SFML-2.6.1/lib/libsfml-graphics-s-d.a
+CA2_BugsLife_Michal_Becmer_D00256088.exe: C:/SFML-2.6.1/lib/libsfml-audio-s-d.a
+CA2_BugsLife_Michal_Becmer_D00256088.exe: C:/SFML-2.6.1/lib/libsfml-window-s-d.a
+CA2_BugsLife_Michal_Becmer_D00256088.exe: C:/SFML-2.6.1/lib/libfreetype.a
+CA2_BugsLife_Michal_Becmer_D00256088.exe: C:/SFML-2.6.1/lib/libsfml-system-s-d.a
+CA2_BugsLife_Michal_Becmer_D00256088.exe: C:/SFML-2.6.1/lib/libopenal32.a
+CA2_BugsLife_Michal_Becmer_D00256088.exe: C:/SFML-2.6.1/lib/libvorbisfile.a
+CA2_BugsLife_Michal_Becmer_D00256088.exe: C:/SFML-2.6.1/lib/libvorbisenc.a
+CA2_BugsLife_Michal_Becmer_D00256088.exe: C:/SFML-2.6.1/lib/libvorbis.a
+CA2_BugsLife_Michal_Becmer_D00256088.exe: C:/SFML-2.6.1/lib/libogg.a
+CA2_BugsLife_Michal_Becmer_D00256088.exe: C:/SFML-2.6.1/lib/libFLAC.a
 CA2_BugsLife_Michal_Becmer_D00256088.exe: CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/linkLibs.rsp
 CA2_BugsLife_Michal_Becmer_D00256088.exe: CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/objects1.rsp
 CA2_BugsLife_Michal_Becmer_D00256088.exe: CMakeFiles/CA2_BugsLife_Michal_Becmer_D00256088.dir/link.txt

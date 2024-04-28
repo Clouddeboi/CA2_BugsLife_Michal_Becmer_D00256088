@@ -8,12 +8,21 @@ Board::Board(){
     //Initialize the grid to be 10x10, empty spaces will have an '-'
     grid.assign(10, vector<char>(10, '-'));
 
+    //goes through each row
     for (int row = 0; row < 10; row++)
     {
+        //goes through each column
         for (int column = 0; column < 10; column++)
         {
+            //rectangle with shape of size 48x48
             sf::RectangleShape rs(sf::Vector2f(48, 48));
+            //makes it green
             rs.setFillColor(sf::Color::Green);
+            //gives it a black outline
+            rs.setOutlineColor(sf::Color::Black);
+            //outline is 2px wide
+            rs.setOutlineThickness(2);
+            //sets it position on the grid
             rs.setPosition(column*48, row*48);
             squares.push_back(rs);
         }
@@ -113,7 +122,7 @@ void Board::fight(vector<Bug*>& vect) {
                         bug2->setSize(bug2->getSize()+2);
                         cout << "Bug: " << bug2->getId() << " Sized Increased" << endl;
                     }
-                    break; // Break to avoid further collisions with the defeated bug
+                    break; //Break to avoid further collisions with the defeated bug
                 }
                 else if (bug1->getSize() == bug2->getSize())
                 {
@@ -207,7 +216,7 @@ void Board::draw(sf::RenderWindow &window, const vector<Bug*>& vect) {
 
     for (const Bug* bug : vect)
     {
-        sf::CircleShape bugShape(20); // Example size of bug shape
+        sf::CircleShape bugShape(20);
 
         //Sets the position of the bug shape based on the bug's position on the board
         bugShape.setPosition(bug->getPosition().second * 48, bug->getPosition().first * 48);
@@ -216,17 +225,28 @@ void Board::draw(sf::RenderWindow &window, const vector<Bug*>& vect) {
         if (bug->getType() == 'C')
         {
             bugShape.setFillColor(sf::Color::Red);
+            if(!bug->isAlive())
+            {
+                bugShape.setFillColor(sf::Color::Transparent);
+            }
         }
         else if (bug->getType() == 'H')
         {
             bugShape.setFillColor(sf::Color::Blue);
+            if(!bug->isAlive())
+            {
+                bugShape.setFillColor(sf::Color::Transparent);
+            }
         }
         else if (bug->getType() == 'B')
         {
             bugShape.setFillColor(sf::Color::Black);
+            if(!bug->isAlive())
+            {
+                bugShape.setFillColor(sf::Color::Transparent);
+            }
         }
         //Draw the bug shape
         window.draw(bugShape);
     }
 }
-

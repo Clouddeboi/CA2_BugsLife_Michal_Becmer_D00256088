@@ -63,7 +63,6 @@ void display(const Bug& bug) {
     printf("\n");
 }
 
-
 void findByID(const vector<Bug*>& bugs) {
     int searchId;
     cout << "Enter the ID of the bug you wish to find: ";
@@ -194,22 +193,26 @@ void runWindow(Board& board, vector<Bug*> vect) {
                     //Check if spacebar is clicked
                     if (event.key.code == sf::Keyboard::Space)
                     {
-                        // Move all bugs
-                        board.tapBoard(vect);
-                        board.fight(vect);
+                        if(!board.isGameOver(vect))
+                        {
+                            // Move all bugs
+                            board.tapBoard(vect);
+                            board.fight(vect);
+                        }
+                        else if (board.isGameOver(vect))
+                        {
+                            cout << "GAME OVER!" << endl;
+                            writeBugHistoryToFile(vect, "bugs_life_history_date_time.out");
+                            //window.close();
+                        }
                     }
                 }
             }
-
-            // Clear the window
             window.clear();
-            // Draw your board and bugs here
             board.draw(window, vect);
-            // Display the window contents
             window.display();
         }
-    }
-
+}
 
 int main() {
         vector<Bug*> vect; //Vector to hold all bugs

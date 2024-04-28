@@ -9,10 +9,10 @@ using namespace std;
 
 class Board {
 protected:
-    vector<vector<char>> grid; // Grid for the bug board
+    vector<vector<char>> grid; //Grid for the bug board
     vector<sf::RectangleShape> squares;
 public:
-    // Constructor
+    //Constructor
     Board();
 
     const vector<vector<char>>& getGrid() const;

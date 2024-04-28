@@ -26,8 +26,6 @@ void BattleAnt ::move() {
 
     pair<int, int> newPos = getPosition();
 
-
-
     //check if way is blocked
     while(isWayBlocked())
     {

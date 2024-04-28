@@ -10,13 +10,13 @@ using namespace std;
 class Bug {
 
 protected:
-    char type; // Type of bug
-    int id; // Identification number
-    pair<int,int> position; // Position coordinates
-    Direction direction; // Direction the bug is facing
-    int size; // Size of the bug
-    bool alive; // Flag indicating if the bug is alive
-    list<pair<int,int>> path; // Path taken by the bug
+    char type; //Type of bug
+    int id;
+    pair<int,int> position; //Position coordinates
+    Direction direction; //Direction the bug is facing
+    int size; //Size of the bug
+    bool alive; //Flag indicating if the bug is alive
+    list<pair<int,int>> path; //Path taken by the bug
     bool isWayBlocked();
 
 public:

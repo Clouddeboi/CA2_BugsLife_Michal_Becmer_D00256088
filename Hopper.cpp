@@ -29,8 +29,8 @@ void Hopper::move() {
     //if its clear, move
     switch (direction) {
         case Direction::North:
-            newPos.second-= hopLength;
-            if(newPos.second < 0) newPos.second = 0;
+            newPos.second-= hopLength;//moving by its hopLength not 1
+            if(newPos.second < 0) newPos.second = 0;//making sure it doesn't hop out of bounds
             cout << "Moving North" << endl;
             break;
         case Direction::East:

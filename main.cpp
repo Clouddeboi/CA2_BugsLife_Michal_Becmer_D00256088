@@ -29,7 +29,7 @@ int directionToInt(Direction direction) {
         case Direction::West:
             return 4;
         default:
-            return 0; // Handle unknown direction
+            return 0; //Handle unknown direction
     }
 }
 // Function to convert direction integer to string
@@ -64,11 +64,13 @@ void display(const Bug& bug) {
 }
 
 void findByID(const vector<Bug*>& bugs) {
+    //asks user for id
     int searchId;
     cout << "Enter the ID of the bug you wish to find: ";
     cin >> searchId;
 
     bool found = false;
+    //if it finds the bug with the id it displays it using display method
     for (const Bug* bug : bugs)
     {
         if (bug->getId() == searchId)
@@ -203,7 +205,7 @@ void runWindow(Board& board, vector<Bug*> vect) {
                         {
                             cout << "GAME OVER!" << endl;
                             writeBugHistoryToFile(vect, "bugs_life_history_date_time.out");
-                            //window.close();
+                            //window.close();//this was for testing to see if the method and logic worked
                         }
                     }
                 }
@@ -282,10 +284,10 @@ int main() {
             }
 
         }
-        // Close the file
+        //Close the file
         file.close();
 
-        int userChoice; // Variable to store user's choice
+        int userChoice; //Variable to store user's choice
         bool run = true;
         bool isBoardInitialized = false;//checks if the board is initialized before allowing users to continue using features
 
@@ -316,7 +318,7 @@ int main() {
             cout << "Please initialize the board first!" << endl;
             continue;
         }
-        // Based on user's choice, perform appropriate action
+        //Based on user's choice, perform appropriate action
         switch (userChoice) {
             case 1:
                 cout << "Bug Board Initialized!\n" << endl;
@@ -336,7 +338,7 @@ int main() {
                 findByID(vect);
                 break;
             case 4:
-                // SHAKE BOARD!!!
+                //SHAKE BOARD!!!
                 bugBoard.tapBoard(vect);
                 bugBoard.fight(vect);
                 //bugBoard.displayBoard();
@@ -347,11 +349,11 @@ int main() {
                 displayLifeHistory(vect);
                 break;
             case 6:
-                // Display all Cells
+                //Display all Cells
                 bugBoard.displayAllCells(vect);
                 break;
             case 7:
-                // PLAY GAME
+                //PLAY GAME
                 cout << "Starting Game...." << endl;
                 cout << "START!" << endl;
 
@@ -374,7 +376,7 @@ int main() {
                 }
                 break;
             case 8:
-                // Exit
+                //Exit
                 writeBugHistoryToFile(vect, "bugs_life_history_date_time.out");
                 run = false;
                 break;

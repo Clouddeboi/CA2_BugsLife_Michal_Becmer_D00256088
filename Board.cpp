@@ -76,15 +76,15 @@ void Board::fight(vector<Bug*>& vect) {
     for (auto it = vect.begin(); it != vect.end(); ++it)
     {
         Bug* bug1 = *it;
-        // Check if the bug is still alive
+        //Check if the bug is still alive
         if (!bug1->isAlive())
         {
             continue;
         }
-        // Get current bug's position
+        //Get current bug's position
         pair<int, int> bug1Position = bug1->getPosition();
 
-        // Check for collisions with other bugs
+        //Check for collisions with other bugs
         for (auto otherIt = it + 1; otherIt != vect.end(); ++otherIt)
         {
             Bug* bug2 = *otherIt;
@@ -96,13 +96,13 @@ void Board::fight(vector<Bug*>& vect) {
             // Get other bug's position
             pair<int, int> bug2Position = bug2->getPosition();
 
-            // Check if bugs occupy the same position
+            //Check if bugs occupy the same position
             if (bug1Position == bug2Position)
             {
-                // Resolve conflict
+                //Resolve conflict
                 if (bug1->getSize() > bug2->getSize())
                 {
-                    // Current bug wins, remove other bug
+                    //bug1 wins, remove bug2
                     bug2->setAlive(false);
                     cout << "Bug " << bug2->getId() << " has been defeated by Bug " << bug1->getId() << endl;
                     //if the bug is a battle ant it increases it size by 2 to account for the -1 size it will gain next turn
@@ -114,7 +114,7 @@ void Board::fight(vector<Bug*>& vect) {
                 }
                 else if (bug1->getSize() < bug2->getSize())
                 {
-                    // Other bug wins, remove current bug
+                    //bug2 wins, remove bug1
                     bug1->setAlive(false);
                     cout << "Bug " << bug1->getId() << " has been defeated by Bug " << bug2->getId() << endl;
                     if(bug2->getType() == 'B')
@@ -122,10 +122,11 @@ void Board::fight(vector<Bug*>& vect) {
                         bug2->setSize(bug2->getSize()+2);
                         cout << "Bug: " << bug2->getId() << " Sized Increased" << endl;
                     }
-                    break; //Break to avoid further collisions with the defeated bug
+                    break;//Break to avoid further collisions with the defeated bug
                 }
                 else if (bug1->getSize() == bug2->getSize())
                 {
+                    //if they are the sam size its a 50\50 who wins
                     int Winner = rand() % 2;
                     if(Winner == 0)
                     {
